@@ -2,6 +2,7 @@ package com.example.committeeportal.Entity;
 
 import java.util.List;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -21,20 +22,24 @@ public class Committee {
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "committee_name", nullable = false, unique = true)
+
+    @Column(name = "committee_name", nullable = false)
+
     private String committeeName;
     
     @Column(name = "head_of_committee")
     private String headOfCommittee;
     
-    @Column(name = "contact_email", unique = true)
+
+    @Column(name = "contact_email")
+
     private String contactEmail;
     
     @Column(name = "password")
     private String password;
     
     @OneToMany(mappedBy = "committee")
-    @JsonIgnore // Prevents infinite loops when fetching data
+
     private List<Event> events;
     
     // Getters and Setters
@@ -55,4 +60,8 @@ public class Committee {
     
     public List<Event> getEvents() { return events; }
     public void setEvents(List<Event> events) { this.events = events; }
+
 }
+
+}
+

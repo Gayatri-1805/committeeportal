@@ -24,4 +24,8 @@ public interface CommitteeRepository extends JpaRepository<Committee, Long> {
     
     // Check if email exists
     boolean existsByContactEmailIgnoreCase(String email);
+
 }
+
+}
+

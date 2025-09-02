@@ -1,16 +1,20 @@
 package com.example.committeeportal.Controller;
-import com.example.committeeportal.Entity.Event;
-import com.example.committeeportal.Repository.EventRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.committeeportal.Entity.Event;
+import com.example.committeeportal.Repository.EventRepository;
 
 
 @RestController
@@ -21,7 +25,7 @@ public class EventController{
     public EventController(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
-
+//------Basic CRUD operations for Event entity------//
     //Get all events
     @GetMapping
     public List<Event> getAllEvents() {
@@ -82,5 +86,52 @@ public class EventController{
         }
     }
 
+// -----------------Custom Queries-----------------//
+   // Get events by status
+    @GetMapping("/status/{status}")
+    public List<Event> getEventsByStatus(@PathVariable String status) {
+        return eventRepository.findByStatus(status);
+    }
 
+    // Get events by committeeId
+    @GetMapping("/committee/{committeeId}")
+    public List<Event> getEventsByCommittee(@PathVariable Long committeeId) {
+        return eventRepository.findByCommittee_Id(committeeId);
+    }
+
+    // Get events by date (format: yyyy-MM-dd)
+    @GetMapping("/date/{eventDate}")
+    public List<Event> getEventsByDate(@PathVariable String eventDate) {
+        LocalDate date = LocalDate.parse(eventDate);
+        return eventRepository.findByEventDate(date);
+    }
+
+    // Get events created after a specific date
+    @GetMapping("/createdAfter/{date}")
+    public List<Event> getEventsCreatedAfter(@PathVariable String date) {
+        LocalDate localDate = LocalDate.parse(date);
+        return eventRepository.findByCreatedDateAfter(localDate);
+    }
+
+    // Get events with participants greater than a given number
+    @GetMapping("/participants/{count}")
+    public List<Event> getEventsByParticipants(@PathVariable Integer count) {
+        return eventRepository.findByExpectedParticipantsGreaterThan(count);
+    }
+
+    // Get events by status and date
+    @GetMapping("/status/{status}/date/{eventDate}")
+    public List<Event> getEventsByStatusAndDate(@PathVariable String status, @PathVariable String eventDate) {
+        LocalDate date = LocalDate.parse(eventDate);
+        return eventRepository.findByStatusAndEventDate(status, date);
+    }
 }
+
+
+
+
+
+
+
+
+
