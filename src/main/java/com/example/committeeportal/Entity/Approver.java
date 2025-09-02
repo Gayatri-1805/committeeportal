@@ -8,12 +8,21 @@ public class Approver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "approver_id")
     private Long approverId;
 
+    @Column(name = "name")
     private String name;
+    
+    @Column(name = "role")
     private String role;
+    
+    @Column(name = "email")
     private String email;
+    @Column(name = "digital_signature")
     private String digitalSignature;
+    
+    @Column(name = "password")
     private String password;
 
     // Getters and setters
