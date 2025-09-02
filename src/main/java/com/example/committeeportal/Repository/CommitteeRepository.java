@@ -27,5 +27,4 @@ public interface CommitteeRepository extends JpaRepository<Committee, Long> {
 
 }
 
-}
 
