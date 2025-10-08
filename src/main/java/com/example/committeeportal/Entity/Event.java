@@ -3,6 +3,8 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +14,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 @Entity
+
 @Table(name = "event")
+
 public class Event{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +43,21 @@ public class Event{
     @JoinColumn(name = "committee_id", referencedColumnName = "id")
     @JsonBackReference
     private Committee committee;
+    
+    //foreign key to Venue
+    @ManyToOne
+    @JoinColumn(name = "venue_id", referencedColumnName = "venue_id")
+    private Venue venue;
+
+     @JsonProperty("committeeId")
+    public Long getCommitteeId() {
+        return (committee != null) ? committee.getId() : null;
+    }
+    
+    @JsonProperty("venueId")
+    public Long getVenueId() {
+        return (venue != null) ? venue.getVenueId() : null;
+    }
 
 
     // Getters and Setters
@@ -62,5 +81,8 @@ public class Event{
 
     public Committee getCommittee() { return committee; }
     public void setCommittee(Committee committee) { this.committee = committee; }
+    
+    public Venue getVenue() { return venue; }
+    public void setVenue(Venue venue) { this.venue = venue; }
 
 }

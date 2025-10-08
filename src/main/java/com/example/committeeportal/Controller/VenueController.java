@@ -149,28 +149,28 @@ public class VenueController {
         }
     }
     
-    // GET - Search venues by name
-    @GetMapping("/search/name")
-    public ResponseEntity<List<Venue>> searchVenuesByName(@RequestParam String name) {
-        try {
-            List<Venue> venues = venueRepository.findByVenueNameContainingIgnoreCase(name);
-            return ResponseEntity.ok(venues);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+ @GetMapping("/name/{name}")
+public ResponseEntity<List<Venue>> searchVenuesByName(@PathVariable String name) {
+    try {
+        List<Venue> venues = venueRepository.findByVenueNameContainingIgnoreCase(name);
+        return ResponseEntity.ok(venues);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-    
-    // GET - Search venues by location
-    @GetMapping("/search/location")
-    public ResponseEntity<List<Venue>> searchVenuesByLocation(@RequestParam String location) {
-        try {
-            List<Venue> venues = venueRepository.findByVenueLocationContainingIgnoreCase(location);
-            return ResponseEntity.ok(venues);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+}
+
+// GET - Search venues by location
+@GetMapping("/location/{location}")
+public ResponseEntity<List<Venue>> searchVenuesByLocation(@PathVariable String location) {
+    try {
+        List<Venue> venues = venueRepository.findByVenueLocationContainingIgnoreCase(location);
+        return ResponseEntity.ok(venues);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-    
+}
+
+
     // GET - Get available venues
     @GetMapping("/available")
     public ResponseEntity<List<Venue>> getAvailableVenues() {

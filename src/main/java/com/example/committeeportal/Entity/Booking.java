@@ -2,10 +2,15 @@ package com.example.committeeportal.Entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Entity
 @Table(name = "booking")
 public class Booking {
+
+    private LocalTime startTime;
+private LocalTime endTime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +24,16 @@ public class Booking {
 
     private LocalDate bookingDate;
     private LocalDate eventDate;
-    private String timeSlot;
+    
     private String status;
+    
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+    
+    @ManyToOne
+    @JoinColumn(name = "venue_id")
+    private Venue venue;
 
     // Getters and Setters
     public Long getBookingId() {
@@ -72,17 +85,41 @@ public class Booking {
         this.eventDate = eventDate;
     }
 
-    public String getTimeSlot() {
-        return timeSlot;
-    }
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
-    }
+  public LocalTime getStartTime() {
+    return startTime;
+}
+
+public void setStartTime(LocalTime startTime) {
+    this.startTime = startTime;
+}
+
+public LocalTime getEndTime() {
+    return endTime;
+}
+
+public void setEndTime(LocalTime endTime) {
+    this.endTime = endTime;
+}
+
 
     public String getStatus() {
         return status;
     }
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    public Event getEvent() {
+        return event;
+    }
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+    
+    public Venue getVenue() {
+        return venue;
+    }
+    public void setVenue(Venue venue) {
+        this.venue = venue;
     }
 }
