@@ -12,9 +12,7 @@ import com.example.committeeportal.Entity.Approver;
 @Repository
 public interface ApproverRepository extends JpaRepository<Approver, Long> {
     
-    // Explicitly define findById with overridden return type
-    @Override
-    Optional<Approver> findById(Long id);
+
     
     // Find by email (useful for login)
     Optional<Approver> findByEmail(String email);

@@ -27,3 +27,61 @@
 2025-10-08T11:01:53.686+05:30  INFO 33988 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-10-08T11:01:53.694+05:30  INFO 33988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-10-08T11:01:53.729+05:30  INFO 33988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T15:12:18.057+05:30  INFO 8040 --- [main] c.e.c.CommitteeportalApplicationTests    : Starting CommitteeportalApplicationTests using Java 17.0.16 with PID 8040 (started by MORE FAMILY in D:\Committeeportal\committeeportal)
+2025-10-08T15:12:18.060+05:30 DEBUG 8040 --- [main] c.e.c.CommitteeportalApplicationTests    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-08T15:12:18.062+05:30  INFO 8040 --- [main] c.e.c.CommitteeportalApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T15:12:19.845+05:30  INFO 8040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-08T15:12:20.110+05:30  INFO 8040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 221 ms. Found 7 JPA repository interfaces.
+2025-10-08T15:12:21.633+05:30  INFO 8040 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-08T15:12:21.767+05:30  INFO 8040 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-08T15:12:21.873+05:30  INFO 8040 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-08T15:12:22.858+05:30  INFO 8040 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-08T15:12:22.922+05:30  INFO 8040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T15:12:23.361+05:30  INFO 8040 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5350ab17
+2025-10-08T15:12:23.364+05:30  INFO 8040 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T15:12:23.435+05:30  WARN 8040 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-08T15:12:23.482+05:30  INFO 8040 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-08T15:12:25.603+05:30  INFO 8040 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-08T15:12:26.409+05:30  INFO 8040 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-08T15:12:27.598+05:30  INFO 8040 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-08T15:12:30.434+05:30  WARN 8040 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-08T15:12:31.802+05:30  INFO 8040 --- [main] c.e.c.CommitteeportalApplicationTests    : Started CommitteeportalApplicationTests in 14.523 seconds (process running for 16.897)
+2025-10-08T15:12:32.677+05:30  INFO 8040 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-08T15:12:32.687+05:30  INFO 8040 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T15:12:32.726+05:30  INFO 8040 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-08T15:18:23.601+05:30  INFO 30564 --- [main] c.e.c.CommitteeportalApplicationTests    : Starting CommitteeportalApplicationTests using Java 17.0.16 with PID 30564 (started by MORE FAMILY in D:\Committeeportal\committeeportal)
+2025-10-08T15:18:23.604+05:30 DEBUG 30564 --- [main] c.e.c.CommitteeportalApplicationTests    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-08T15:18:23.606+05:30  INFO 30564 --- [main] c.e.c.CommitteeportalApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-10-08T15:18:25.469+05:30  INFO 30564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-08T15:18:25.737+05:30  INFO 30564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 232 ms. Found 7 JPA repository interfaces.
+2025-10-08T15:18:27.208+05:30  INFO 30564 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-08T15:18:27.326+05:30  INFO 30564 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-08T15:18:27.413+05:30  INFO 30564 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-08T15:18:28.318+05:30  INFO 30564 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-08T15:18:28.381+05:30  INFO 30564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-08T15:18:28.796+05:30  INFO 30564 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fde1d64
+2025-10-08T15:18:28.798+05:30  INFO 30564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-08T15:18:28.866+05:30  WARN 30564 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-08T15:18:28.912+05:30  INFO 30564 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-08T15:18:30.995+05:30  INFO 30564 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-08T15:18:31.817+05:30  INFO 30564 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-08T15:18:33.258+05:30  INFO 30564 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-08T15:18:36.152+05:30  WARN 30564 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-08T15:18:37.566+05:30  INFO 30564 --- [main] c.e.c.CommitteeportalApplicationTests    : Started CommitteeportalApplicationTests in 14.811 seconds (process running for 16.948)
+2025-10-08T15:18:38.322+05:30  INFO 30564 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-08T15:18:38.337+05:30  INFO 30564 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-08T15:18:38.380+05:30  INFO 30564 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
