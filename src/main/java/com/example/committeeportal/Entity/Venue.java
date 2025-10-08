@@ -1,10 +1,15 @@
 package com.example.committeeportal.Entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,6 +36,14 @@ public class Venue {
     @Column(name = "facilities")
     private String facilities;
     
+    @OneToMany(mappedBy = "venue")
+    @JsonIgnore
+    private List<Event> events;
+    
+    @OneToMany(mappedBy = "venue")
+    @JsonIgnore
+    private List<Booking> bookings;
+    
     // Getters and Setters
     public Long getVenueId() { return venueId; }
     public void setVenueId(Long venueId) { this.venueId = venueId; }
@@ -49,4 +62,10 @@ public class Venue {
     
     public String getFacilities() { return facilities; }
     public void setFacilities(String facilities) { this.facilities = facilities; }
+    
+    public List<Event> getEvents() { return events; }
+    public void setEvents(List<Event> events) { this.events = events; }
+    
+    public List<Booking> getBookings() { return bookings; }
+    public void setBookings(List<Booking> bookings) { this.bookings = bookings; }
 }
