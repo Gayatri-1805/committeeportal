@@ -23,6 +23,10 @@ import com.example.committeeportal.Repository.ApproverRepository;
 import com.example.committeeportal.Repository.EventRepository;
 import com.example.committeeportal.Repository.PermissionApplicationRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "permission", description = "Operations related to permissions")
 @RestController
 @RequestMapping("/permissions")
 public class PermissionController {
@@ -41,6 +45,7 @@ public class PermissionController {
     }
 
     // Get all permission applications
+    @Operation(summary = "Get all permission")
     @GetMapping
     public List<PermissionApplication> getAllApplications() {
         logger.info("Fetching all permission applications");
@@ -55,6 +60,7 @@ public class PermissionController {
     }
 
     // Get a permission application by its ID
+    @Operation(summary = "Get all permission by id")
     @GetMapping("/{id}")
     public PermissionApplication getApplicationById(@PathVariable Long id) {
         logger.info("Fetching permission application with ID {}", id);
@@ -73,6 +79,7 @@ public class PermissionController {
     }
 
     // Submit a new permission application for an event
+    @Operation(summary = "Create a new permission")
     @PostMapping("/submit/{eventId}")
     public PermissionApplication submitApplication(@PathVariable Long eventId, @RequestBody PermissionApplication application) {
         logger.info("Submitting permission application for event ID {}", eventId);
@@ -87,6 +94,7 @@ public class PermissionController {
     }
 
     // Approve or reject a permission application
+    @Operation(summary = "approve or reject a new permission")
     @PostMapping("/{applicationId}/approve/{approverId}")
     public Approval approveApplication(@PathVariable Long applicationId, @PathVariable Long approverId, @RequestBody Approval approvalDetails) {
         Optional<PermissionApplication> applicationOpt = permissionRepo.findById(applicationId);

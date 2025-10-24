@@ -11,6 +11,7 @@
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.DeleteMapping;
     import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.PatchMapping;
     import org.springframework.web.bind.annotation.PathVariable;
     import org.springframework.web.bind.annotation.PostMapping;
     import org.springframework.web.bind.annotation.PutMapping;
@@ -18,10 +19,14 @@
     import org.springframework.web.bind.annotation.RequestMapping;
     import org.springframework.web.bind.annotation.RequestParam;
     import org.springframework.web.bind.annotation.RestController;
-    import org.springframework.web.bind.annotation.PatchMapping;
+
     import com.example.committeeportal.Entity.Committee;
     import com.example.committeeportal.Repository.CommitteeRepository;
 
+    import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+    @Tag(name = "committe", description = "Operations related to committe")
     @RestController
     @RequestMapping("/api/committees")
     public class CommitteeController {
@@ -31,6 +36,7 @@
         private CommitteeRepository committeeRepository;
         
         // Get all committees
+        @Operation(summary = "Get all committee")
         @GetMapping 
         public ResponseEntity<List<Committee>> getAllCommittees() {
             logger.info("Fetching all committees");
@@ -50,6 +56,7 @@
         }
         
         // Get committee by ID
+        @Operation(summary = "Get all committee by id")
         @GetMapping("/{id}")
         public ResponseEntity<Committee> getCommitteeById(@PathVariable Long id) {
             logger.info("Fetching committee with ID {}", id);
@@ -69,6 +76,7 @@
         }
         
         // Create a new committee
+        @Operation(summary = "Create a new committee")
         @PostMapping
         public ResponseEntity<Committee> createCommittee(@RequestBody Committee committee) {
             logger.info("Creating new committee: {}", committee.getCommitteeName());
@@ -96,6 +104,7 @@
         }
         
         // Update an existing committee
+        @Operation(summary = "Replace committee by id (PUT)")
         @PutMapping("/{id}")
         public ResponseEntity<Committee> updateCommittee(
             
@@ -136,6 +145,7 @@
         }
         
         // Delete a committee
+        @Operation(summary = "Delete committee by id")
         @DeleteMapping("/{id}")
         public ResponseEntity<Void> deleteCommittee(@PathVariable Long id) {
             logger.info("Deleting committee with ID {}", id);
@@ -157,6 +167,7 @@
         }
         
         // Search committees by name
+        @Operation(summary = "Get all booking by name")
         @GetMapping("/search")
         public ResponseEntity<List<Committee>> searchCommitteesByName(
                 
@@ -173,6 +184,7 @@
         }
         
         // Login endpoint
+        @Operation(summary = "login user")
         @PostMapping("/login")
         public ResponseEntity<Committee> login(@RequestBody Committee loginRequest) {
             logger.info("Login attempt for email: {}", loginRequest.getContactEmail()); 
@@ -201,7 +213,7 @@
         }
         
     
-
+    @Operation(summary = "Patch a single field of committee")    
     @PatchMapping("/{id}")
     public ResponseEntity<Committee> patchCommittee(
             @PathVariable Long id, @RequestBody Committee committee) {

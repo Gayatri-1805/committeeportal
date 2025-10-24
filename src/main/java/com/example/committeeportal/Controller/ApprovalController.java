@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +26,11 @@ import com.example.committeeportal.Repository.ApprovalRepository;
 import com.example.committeeportal.Repository.ApproverRepository;
 import com.example.committeeportal.Repository.PermissionApplicationRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
+@Tag(name = "Approvals", description = "Operations related to approvals")
 @RestController
 @RequestMapping("/api/approvals")
 public class ApprovalController {
@@ -43,6 +47,7 @@ public class ApprovalController {
     private PermissionApplicationRepository permissionApplicationRepository;
     
     // GET all approvals
+    @Operation(summary = "Get all approvals")
     @GetMapping
     public ResponseEntity<List<Approval>> getAllApprovals() {
         logger.info("Fetching all approvals...");
@@ -57,6 +62,7 @@ public class ApprovalController {
     }
     
     // GET approval by ID
+    @Operation(summary = "get approval by id")
     @GetMapping("/{id}")
     public ResponseEntity<Approval> getApprovalById(@PathVariable Long id) {
         logger.info("Fetching approval with ID: {}", id);
@@ -77,6 +83,7 @@ public class ApprovalController {
     }
     
     // POST create new approval
+    @Operation(summary = "Create a new approval")
     @PostMapping
     public ResponseEntity<Approval> createApproval(@RequestBody Approval approval) {
         logger.info("Creating new approval...");
@@ -116,6 +123,7 @@ public class ApprovalController {
     }
     
     // POST create approval for a specific permission application by a specific approver
+    @Operation(summary = "Create  approval for specific permission application")
     @PostMapping("/{applicationId}/approver/{approverId}")
     public ResponseEntity<Approval> createApprovalForApplication(
             @PathVariable Long applicationId,
@@ -156,6 +164,7 @@ public class ApprovalController {
     }
     
     // PUT update approval
+    @Operation(summary = "Replace approval by id (PUT)")
     @PutMapping("/{id}")
     public ResponseEntity<Approval> updateApproval(@PathVariable Long id, @RequestBody Approval approval) {
         logger.info("Updating approval with ID: {}", id);
@@ -203,6 +212,7 @@ public class ApprovalController {
     }
     
     // PATCH partial update approval
+    @Operation(summary = "Patch a single field of approval")
     @PatchMapping("/{id}")
     public ResponseEntity<Approval> patchApproval(@PathVariable Long id, @RequestBody Approval approval) {
         logger.info("Partially updating approval with ID: {}", id);
@@ -253,6 +263,7 @@ public class ApprovalController {
     }
     
     // DELETE approval
+    @Operation(summary = "Delete approval by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteApproval(@PathVariable Long id) {
         logger.info("Deleting approval with ID: {}", id);
@@ -274,6 +285,7 @@ public class ApprovalController {
     }
     
     // GET all approvals for a specific permission application
+    @Operation(summary = "Get all approvals for a specific permission")
     @GetMapping("/application/{applicationId}")
     public ResponseEntity<List<Approval>> getApprovalsByApplication(@PathVariable Long applicationId) {
         logger.info("Fetching approvals for Application ID: {}", applicationId);
@@ -295,6 +307,7 @@ public class ApprovalController {
     }
     
     // GET all approvals by a specific approver
+    @Operation(summary = "Get all approvals by a specific approver")
     @GetMapping("/approver/{approverId}")
     public ResponseEntity<List<Approval>> getApprovalsByApprover(@PathVariable Long approverId) {
         logger.info("Fetching approvals by Approver ID: {}", approverId);
@@ -316,6 +329,7 @@ public class ApprovalController {
     }
     
     // GET all approvals by status
+    @Operation(summary = "Get all approvals by a specific status")
     @GetMapping("/status/{status}")
     public ResponseEntity<List<Approval>> getApprovalsByStatus(@PathVariable String status) {
         logger.info("Fetching approvals with status: {}", status);

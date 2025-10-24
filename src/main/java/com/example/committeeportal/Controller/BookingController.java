@@ -1,24 +1,37 @@
 package com.example.committeeportal.Controller;
 
-import com.example.committeeportal.Entity.Booking;
-import com.example.committeeportal.Entity.Event;
-import com.example.committeeportal.Entity.Venue;
-import com.example.committeeportal.Repository.BookingRepository;
-import com.example.committeeportal.Repository.EventRepository;
-import com.example.committeeportal.Repository.VenueRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.committeeportal.Entity.Booking;
+import com.example.committeeportal.Entity.Event;
+import com.example.committeeportal.Entity.Venue;
+import com.example.committeeportal.Repository.BookingRepository;
+import com.example.committeeportal.Repository.EventRepository;
+import com.example.committeeportal.Repository.VenueRepository;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "bookings", description = "Operations related to bookings")
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
@@ -53,13 +66,14 @@ public class BookingController {
         return true;
     }
     
+    @Operation(summary = "Get all booking")
     @GetMapping
     public List<Booking> getAllBookings() {
         logger.info("Fetching all bookings");
         return bookingRepository.findAll();
     }
     
-
+    @Operation(summary = "get all booking by id")
     @GetMapping("/{id}")
     public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
         logger.info("Fetching booking with ID: {}", id);
@@ -72,6 +86,7 @@ public class BookingController {
         return ResponseEntity.notFound().build();
     }
 
+    @Operation(summary = "Create a new booking")
     @PostMapping
 public ResponseEntity<?> createBooking(@RequestBody Booking booking) {
     logger.info("Creating new booking for event: {}", booking.getEventName());
@@ -116,6 +131,7 @@ public ResponseEntity<?> createBooking(@RequestBody Booking booking) {
     }
 }
 
+    @Operation(summary = "Replace booking by id (PUT)")
     @PutMapping("/{id}")
 public ResponseEntity<?> updateBooking(@PathVariable Long id, @RequestBody Booking bookingDetails) {
     logger.info("Updating booking with ID: {}", id);
@@ -187,7 +203,7 @@ public ResponseEntity<?> updateBooking(@PathVariable Long id, @RequestBody Booki
     return ResponseEntity.notFound().build();
 }
 
-
+    @Operation(summary = "Patch a single field of booking")
     @PatchMapping("/{id}")
 public ResponseEntity<Booking> partialUpdateBooking(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
     logger.info("Partially updating booking with ID: {}", id);

@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.committeeportal.Entity.Event;
 import com.example.committeeportal.Repository.EventRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "event", description = "Operations related to events")
 @RestController
 @RequestMapping("/events")
 public class EventController{
@@ -30,6 +33,7 @@ public class EventController{
     }
 //------Basic CRUD operations for Event entity------//
     //Get all events
+    @Operation(summary = "Get all events")
     @GetMapping
     public List<Event> getAllEvents() {
         logger.info("Fetching all events...");
@@ -37,6 +41,7 @@ public class EventController{
     }
 
     //Get event by id
+    @Operation(summary = "Get all events by id")
     @GetMapping("/{id}")
     public Event getEventById(@PathVariable Long id) {
         logger.info("Fetching event with ID: {}", id);
@@ -44,6 +49,7 @@ public class EventController{
     }
     
     //Create new event
+    @Operation(summary = "Create a new event")
     @PostMapping
     public Event createEvent(@RequestBody Event event) {
         logger.info("Creating new event: {}", event.getEventName());
@@ -51,6 +57,7 @@ public class EventController{
     }
     
     //update full event
+    @Operation(summary = "Replace event by id (PUT)")
     @PutMapping("/{id}")
     public Event updateEvent(@PathVariable Long id, @RequestBody Event updatedEvent) {
         logger.info("Updating event with ID: {}", id);
@@ -67,6 +74,7 @@ public class EventController{
     }
     
     //update partial event
+    @Operation(summary = "Patch a single field of event")
     @PatchMapping("/{id}")
     public Event partiallyUpdateEvent(@PathVariable Long id, @RequestBody Event partialEvent) {
         logger.info("Partially updating event with ID: {}", id);
@@ -87,6 +95,7 @@ public class EventController{
     }    
     
     //Delete event by id
+    @Operation(summary = "Delete event by id")
     @DeleteMapping("/{id}")
     public String deleteEvent(@PathVariable Long id) {
         logger.info("Deleting event with ID: {}", id);
@@ -102,6 +111,7 @@ public class EventController{
 
 // -----------------Custom Queries-----------------//
    // Get events by status
+   @Operation(summary = "Get all events by status")
     @GetMapping("/status/{status}")
     public List<Event> getEventsByStatus(@PathVariable String status) {
         logger.info("Fetching events with status: {}", status);
@@ -109,6 +119,7 @@ public class EventController{
     }
 
     // Get events by committeeId
+    @Operation(summary = "Get all events by committee")
     @GetMapping("/committee/{committeeId}")
     public List<Event> getEventsByCommittee(@PathVariable Long committeeId) {
         logger.info("Fetching events for committee ID: {}", committeeId);
@@ -116,6 +127,7 @@ public class EventController{
     }
 
     // Get events by date (format: yyyy-MM-dd)
+    @Operation(summary = "Get all events by date")
     @GetMapping("/date/{eventDate}")
     public List<Event> getEventsByDate(@PathVariable String eventDate) {
         logger.info("Fetching events for date: {}", eventDate);
@@ -124,6 +136,7 @@ public class EventController{
     }
 
     // Get events created after a specific date
+    @Operation(summary = "Get all events after specific date")
     @GetMapping("/createdAfter/{date}")
     public List<Event> getEventsCreatedAfter(@PathVariable String date) {
         LocalDate localDate = LocalDate.parse(date);
@@ -132,6 +145,7 @@ public class EventController{
     }
 
     // Get events with participants greater than a given number
+    @Operation(summary = "Get all events with particants greater than a given number")
     @GetMapping("/participants/{count}")
     public List<Event> getEventsByParticipants(@PathVariable Integer count) {
         logger.info("Fetching events with participants greater than {}", count);
@@ -139,6 +153,7 @@ public class EventController{
     }
 
     // Get events by status and date
+    @Operation(summary = "Get all events by status and date")
     @GetMapping("/status/{status}/date/{eventDate}")
     public List<Event> getEventsByStatusAndDate(@PathVariable String status, @PathVariable String eventDate) {
         LocalDate date = LocalDate.parse(eventDate);

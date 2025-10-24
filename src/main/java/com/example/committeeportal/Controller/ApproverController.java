@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.committeeportal.Entity.Approver;
 import com.example.committeeportal.Repository.ApproverRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "Approvers", description = "Operations related to approvers")
 @RestController
 @RequestMapping("/api/approvers")
 public class ApproverController {
@@ -34,6 +37,7 @@ public class ApproverController {
     }
 
     // ✅ GET all approvers
+    @Operation(summary = "Get all approvals")
     @GetMapping
     public List<Approver> getAllApprovers() {
         logger.info("Fetching all approvers from the database");
@@ -41,6 +45,7 @@ public class ApproverController {
     }
 
     // ✅ GET approver by ID
+    @Operation(summary = "Get all approvals by id")
     @GetMapping("/{id}")
     public ResponseEntity<Approver> getApproverById(@PathVariable Long id) {
         logger.info("Fetching approver with ID: {}", id);
@@ -50,6 +55,7 @@ public class ApproverController {
     }
 
     // ✅ POST create new approver
+    @Operation(summary = "Create a new approval")
     @PostMapping
     public ResponseEntity<Approver> createApprover(@RequestBody Approver approver) {
         logger.info("Creating new approver: {}", approver.getName());
@@ -62,6 +68,7 @@ public class ApproverController {
 
 
     // ✅ PUT update (replace entire object)
+@Operation(summary = "Replace approval by id (PUT)")    
 @PutMapping("/{id}")
 public ResponseEntity<Approver> updateApprover(
         @PathVariable Long id,
@@ -82,6 +89,7 @@ public ResponseEntity<Approver> updateApprover(
 }
 
     // ✅ PATCH partial update
+@Operation(summary = "Patch a single field of approval")    
 @PatchMapping("/{id}")
 public ResponseEntity<Approver> patchApprover(
         @PathVariable Long id,
@@ -112,6 +120,7 @@ public ResponseEntity<Approver> patchApprover(
 }
 
     // ✅ DELETE approver
+    @Operation(summary = "Delete approval by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteApprover(@PathVariable Long id) {
         logger.info("Deleting approver with ID: {}", id);

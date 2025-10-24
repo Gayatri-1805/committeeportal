@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.committeeportal.Entity.Venue;
 import com.example.committeeportal.Repository.VenueRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "venue", description = "Operations related to venue")
 @RestController
 @RequestMapping("/api/venues")
 public class VenueController {
@@ -31,6 +35,7 @@ public class VenueController {
     private VenueRepository venueRepository;
     
     // GET - Get all venues
+    @Operation(summary = "Get all venue")
     @GetMapping
     public ResponseEntity<List<Venue>> getAllVenues() {
         logger.info("Fetching all venues...");
@@ -45,6 +50,7 @@ public class VenueController {
     }
     
     // GET - Get venue by ID
+    @Operation(summary = "Get all venue by id")
     @GetMapping("/{id}")
     public ResponseEntity<Venue> getVenueById(@PathVariable Long id) {
         logger.info("Fetching venue with ID: {}", id);
@@ -65,6 +71,7 @@ public class VenueController {
     }
     
     // POST - Create a new venue
+    @Operation(summary = "Create a new venue")
     @PostMapping
     public ResponseEntity<Venue> createVenue(@RequestBody Venue venue) {
         logger.info("Creating new venue: {}", venue.getVenueName());
@@ -84,6 +91,7 @@ public class VenueController {
     }
     
     // PUT - Update an existing venue
+    @Operation(summary = "Replace venue by id (PUT)")
     @PutMapping("/{id}")
     public ResponseEntity<Venue> updateVenue(@PathVariable Long id, @RequestBody Venue venue) {
         logger.info("Updating venue with ID: {}", id);
@@ -114,6 +122,7 @@ public class VenueController {
     }
     
     // PATCH - Partially update an existing venue
+    @Operation(summary = "Patch a single field of venue")
     @PatchMapping("/{id}")
     public ResponseEntity<Venue> patchVenue(@PathVariable Long id, @RequestBody Venue venue) {
         logger.info("Partially updating venue with ID: {}", id);
@@ -154,6 +163,7 @@ public class VenueController {
     }
     
     // DELETE - Delete a venue
+    @Operation(summary = "Delete venue by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVenue(@PathVariable Long id) {
         logger.info("Deleting venue with ID: {}", id);
@@ -173,7 +183,8 @@ public class VenueController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-    
+ 
+ @Operation(summary = "Get all venue by name")   
  @GetMapping("/name/{name}")
 public ResponseEntity<List<Venue>> searchVenuesByName(@PathVariable String name) {
     logger.info("Searching venues by name containing '{}'", name);
@@ -188,6 +199,7 @@ public ResponseEntity<List<Venue>> searchVenuesByName(@PathVariable String name)
 }
 
 // GET - Search venues by location
+@Operation(summary = "Get all venues by the name")
 @GetMapping("/location/{location}")
 public ResponseEntity<List<Venue>> searchVenuesByLocation(@PathVariable String location) {
     logger.info("Searching venues by location containing '{}'", location);
@@ -203,6 +215,7 @@ public ResponseEntity<List<Venue>> searchVenuesByLocation(@PathVariable String l
 
 
     // GET - Get available venues
+    @Operation(summary = "Get all available venue")
     @GetMapping("/available")
     public ResponseEntity<List<Venue>> getAvailableVenues() {
         logger.info("Fetching available venues...");
@@ -217,6 +230,7 @@ public ResponseEntity<List<Venue>> searchVenuesByLocation(@PathVariable String l
     }
     
     // GET - Get venues with minimum capacity
+    @Operation(summary = "Get capacity of venue")
     @GetMapping("/capacity")
     public ResponseEntity<List<Venue>> getVenuesByCapacity(@RequestParam Integer minCapacity) {
         logger.info("Fetching venues with minimum capacity: {}", minCapacity);
