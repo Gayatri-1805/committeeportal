@@ -1,0 +1,397 @@
+2025-11-07T14:21:47.240+05:30  INFO 30156 --- [main] c.e.c.CommitteeportalApplication         : Starting CommitteeportalApplication using Java 17.0.17 with PID 30156 (D:\Committeeportal\committeeportal\target\classes started by MORE FAMILY in D:\Committeeportal)
+2025-11-07T14:21:47.254+05:30 DEBUG 30156 --- [main] c.e.c.CommitteeportalApplication         : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-11-07T14:21:47.255+05:30  INFO 30156 --- [main] c.e.c.CommitteeportalApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-11-07T14:21:48.482+05:30  INFO 30156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T14:21:48.603+05:30  INFO 30156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 7 JPA repository interfaces.
+2025-11-07T14:21:49.582+05:30  INFO 30156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T14:21:49.598+05:30  INFO 30156 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T14:21:49.598+05:30  INFO 30156 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-07T14:21:49.693+05:30  INFO 30156 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T14:21:49.693+05:30  INFO 30156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2370 ms
+2025-11-07T14:21:50.174+05:30  INFO 30156 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T14:21:50.336+05:30  INFO 30156 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-07T14:21:50.466+05:30  INFO 30156 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T14:21:51.019+05:30  INFO 30156 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T14:21:51.055+05:30  INFO 30156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-07T14:21:51.306+05:30  INFO 30156 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@314f59b
+2025-11-07T14:21:51.307+05:30  INFO 30156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-07T14:21:51.377+05:30  WARN 30156 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T14:21:51.400+05:30  INFO 30156 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-07T14:21:52.253+05:30  INFO 30156 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T14:21:53.214+05:30  INFO 30156 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T14:21:53.976+05:30  INFO 30156 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-07T14:21:55.490+05:30  WARN 30156 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-07T14:21:56.741+05:30  INFO 30156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T14:21:56.756+05:30  INFO 30156 --- [main] c.e.c.CommitteeportalApplication         : Started CommitteeportalApplication in 11.23 seconds (process running for 13.183)
+2025-11-07T14:22:02.197+05:30  INFO 30156 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T14:22:02.198+05:30  INFO 30156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T14:22:02.201+05:30  INFO 30156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-07T14:22:04.366+05:30  INFO 30156 --- [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1652 ms
+2025-11-07T14:23:05.689+05:30  INFO 30156 --- [http-nio-8080-exec-4] c.e.c.Controller.EventController         : Fetching all events...
+2025-11-07T14:29:36.860+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.EventController         : Creating new event: TechHack
+2025-11-07T14:33:09.808+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2025-11-07T14:39:59.475+05:30  INFO 30156 --- [http-nio-8080-exec-3] c.e.c.Controller.EventController         : Partially updating event with ID: 7
+2025-11-07T14:39:59.489+05:30  INFO 30156 --- [http-nio-8080-exec-3] c.e.c.Controller.EventController         : Event 7 partially updated
+2025-11-07T14:47:04.280+05:30  INFO 30156 --- [http-nio-8080-exec-10] c.e.c.Controller.VenueController         : Creating new venue: Auditorium A
+2025-11-07T14:47:24.874+05:30  WARN 30156 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('{' (code 123)): was expecting double-quote to start field name]
+2025-11-07T14:48:04.924+05:30  WARN 30156 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('{' (code 123)): was expecting double-quote to start field name]
+2025-11-07T14:48:57.594+05:30  WARN 30156 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('{' (code 123)): was expecting double-quote to start field name]
+2025-11-07T14:49:17.108+05:30  WARN 30156 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('{' (code 123)): was expecting double-quote to start field name]
+2025-11-07T14:50:13.922+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.BookingController       : Creating new booking for event: TechFest
+2025-11-07T14:50:13.972+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-10-15 between 10:00 - 12:00
+2025-11-07T15:07:16.280+05:30  INFO 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.ApprovalController      : Fetching approval with ID: 1
+2025-11-07T15:07:16.302+05:30 DEBUG 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.ApprovalController      : Approval found: com.example.committeeportal.Entity.Approval@90cdeb6
+2025-11-07T15:48:21.195+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=31m24s271ms713탎800ns).
+2025-11-07T16:00:39.827+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m18s631ms182탎300ns).
+2025-11-07T16:21:26.718+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m16s165ms335탎700ns).
+2025-11-07T16:28:59.213+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.CommitteeController     : Fetching committee with ID 1
+2025-11-07T16:30:15.706+05:30  INFO 30156 --- [http-nio-8080-exec-5] c.e.c.Controller.CommitteeController     : Creating new committee: Organizing Committee
+2025-11-07T16:30:15.886+05:30  WARN 30156 --- [http-nio-8080-exec-5] c.e.c.Controller.CommitteeController     : Committee name Organizing Committee already exists
+2025-11-07T16:31:01.276+05:30  INFO 30156 --- [http-nio-8080-exec-4] c.e.c.Controller.CommitteeController     : Creating new committee: Rotaract
+2025-11-07T16:31:01.331+05:30  INFO 30156 --- [http-nio-8080-exec-4] c.e.c.Controller.CommitteeController     : Committee Rotaract created successfully with ID 3
+2025-11-07T16:31:52.655+05:30  INFO 30156 --- [http-nio-8080-exec-8] c.e.c.Controller.CommitteeController     : Login attempt for email: organizing@college.com
+2025-11-07T16:31:52.664+05:30  INFO 30156 --- [http-nio-8080-exec-8] c.e.c.Controller.CommitteeController     : Login successful for email: organizing@college.com
+2025-11-07T16:32:11.801+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.CommitteeController     : Login attempt for email: organizing@college.com
+2025-11-07T16:32:11.831+05:30  WARN 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.CommitteeController     : Login failed for email: organizing@college.com
+2025-11-07T16:32:34.497+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.CommitteeController     : Searching committees with name containing 'Rotaract'
+2025-11-07T16:32:34.601+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.CommitteeController     : Found 1 committees matching 'Rotaract'
+2025-11-07T16:32:50.457+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.CommitteeController     : Fetching all committees
+2025-11-07T16:32:50.489+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.CommitteeController     : Found 3 committees
+2025-11-07T16:33:12.980+05:30  INFO 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.CommitteeController     : Deleting committee with ID 3
+2025-11-07T16:33:13.034+05:30  INFO 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.CommitteeController     : Committee with ID 3 deleted successfully
+2025-11-07T16:34:14.547+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.CommitteeController     : Updating committee with ID 2
+2025-11-07T16:34:14.556+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.CommitteeController     : Committee with ID 2 updated successfully
+2025-11-07T16:35:04.255+05:30  INFO 30156 --- [http-nio-8080-exec-10] c.e.c.Controller.CommitteeController     : Patching committee with ID 1
+2025-11-07T16:35:04.264+05:30  INFO 30156 --- [http-nio-8080-exec-10] c.e.c.Controller.CommitteeController     : Committee with ID 1 patched successfully
+2025-11-07T16:38:30.881+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m33s911ms11탎500ns).
+2025-11-07T16:41:02.518+05:30  INFO 30156 --- [http-nio-8080-exec-4] c.e.c.Controller.EventController         : Fetching all events...
+2025-11-07T16:49:13.838+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2025-11-07T16:49:13.863+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 2 applications
+2025-11-07T16:49:37.502+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission application with ID 1
+2025-11-07T16:49:42.962+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission application with ID 1
+2025-11-07T16:50:03.810+05:30  WARN 30156 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.committeeportal.Entity.Event` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')]
+2025-11-07T16:50:24.961+05:30  WARN 30156 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.committeeportal.Entity.Event` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')]
+2025-11-07T16:54:20.816+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2025-11-07T16:57:12.252+05:30  INFO 30156 --- [http-nio-8080-exec-5] c.e.c.Controller.VenueController         : Fetching all venues...
+2025-11-07T16:57:12.264+05:30  INFO 30156 --- [http-nio-8080-exec-5] c.e.c.Controller.VenueController         : Found 1 venues
+2025-11-07T17:00:34.373+05:30  INFO 30156 --- [http-nio-8080-exec-8] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:00:34.409+05:30  WARN 30156 --- [http-nio-8080-exec-8] c.e.c.Controller.BookingController       : Venue Auditorium A is not available on 2025-10-15 between 10:00 - 12:00
+2025-11-07T17:00:34.415+05:30  WARN 30156 --- [http-nio-8080-exec-8] c.e.c.Controller.BookingController       : Venue already booked for requested slot: Auditorium A
+2025-11-07T17:00:54.681+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:00:54.689+05:30  INFO 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-10-10 between 10:00 - 12:00
+2025-11-07T17:00:54.908+05:30  WARN 30156 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2025-11-07T17:00:54.908+05:30 ERROR 30156 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".
+2025-11-07T17:00:55.183+05:30 ERROR 30156 --- [http-nio-8080-exec-7] c.e.c.Controller.BookingController       : Error creating booking: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; constraint [fkiy2tdi4vrw2mljj6rqwmd698q]
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; constraint [fkiy2tdi4vrw2mljj6rqwmd698q]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:294) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:256) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy149.save(Unknown Source) ~[na:na]
+	at com.example.committeeportal.Controller.BookingController.createBooking(BookingController.java:126) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:97) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:116) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:47) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:95) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:682) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:293) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:274) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:324) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:394) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:308) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:761) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:745) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:320) ~[spring-orm-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:654) ~[spring-data-jpa-3.5.3.jar:3.5.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:515) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:284) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:734) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:174) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.10.jar:6.2.10]
+	... 56 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2734) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2421) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:518) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:435) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157) ~[postgresql-42.7.7.jar:42.7.7]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-6.3.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-6.3.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	... 112 common frames omitted
+
+2025-11-07T17:01:27.727+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:01:27.732+05:30  INFO 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-11-10 between 10:00 - 12:00
+2025-11-07T17:01:27.755+05:30  WARN 30156 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2025-11-07T17:01:27.756+05:30 ERROR 30156 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".
+2025-11-07T17:01:27.758+05:30 ERROR 30156 --- [http-nio-8080-exec-6] c.e.c.Controller.BookingController       : Error creating booking: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; constraint [fkiy2tdi4vrw2mljj6rqwmd698q]
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]; constraint [fkiy2tdi4vrw2mljj6rqwmd698q]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:294) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:256) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy149.save(Unknown Source) ~[na:na]
+	at com.example.committeeportal.Controller.BookingController.createBooking(BookingController.java:126) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".] [insert into booking (booking_date,end_time,event_id,event_date,event_description,event_name,start_time,status,venue_id,venue_location,venue_name) values (?,?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:97) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:116) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:47) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:95) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:682) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:293) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:274) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:324) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:394) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:308) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:761) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:745) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:320) ~[spring-orm-6.2.10.jar:6.2.10]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:654) ~[spring-data-jpa-3.5.3.jar:3.5.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:515) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:284) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:734) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:174) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.5.3.jar:3.5.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.10.jar:6.2.10]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.10.jar:6.2.10]
+	... 56 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "booking" violates foreign key constraint "fkiy2tdi4vrw2mljj6rqwmd698q"
+  Detail: Key (event_id)=(2) is not present in table "event".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2734) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2421) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:518) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:435) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196) ~[postgresql-42.7.7.jar:42.7.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157) ~[postgresql-42.7.7.jar:42.7.7]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-6.3.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-6.3.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.6.26.Final.jar:6.6.26.Final]
+	... 112 common frames omitted
+
+2025-11-07T17:03:38.040+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:03:38.049+05:30  INFO 30156 --- [http-nio-8080-exec-9] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-11-10 between 10:00 - 12:00
+2025-11-07T17:04:32.967+05:30  INFO 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:04:32.977+05:30  WARN 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.BookingController       : Venue Auditorium A is not available on 2025-11-10 between 10:00 - 12:00
+2025-11-07T17:04:32.977+05:30  WARN 30156 --- [http-nio-8080-exec-1] c.e.c.Controller.BookingController       : Venue already booked for requested slot: Auditorium A
+2025-11-07T17:04:46.661+05:30  INFO 30156 --- [http-nio-8080-exec-3] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:04:46.674+05:30  INFO 30156 --- [http-nio-8080-exec-3] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-11-12 between 10:00 - 12:00
+2025-11-07T17:05:01.763+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.BookingController       : Creating new booking for event: Tech Conference
+2025-11-07T17:05:01.775+05:30  INFO 30156 --- [http-nio-8080-exec-2] c.e.c.Controller.BookingController       : Venue Auditorium A is available on 2025-10-12 between 10:00 - 12:00
+2025-11-07T18:54:52.364+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h46m51s8ms387탎400ns).
+2025-11-07T19:34:38.524+05:30  WARN 30156 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m46s160ms48탎500ns).
