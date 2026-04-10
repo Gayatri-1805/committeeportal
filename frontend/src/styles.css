@@ -1,0 +1,203 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #FFF5E6;
+  color: #FFFFFF;
+}
+
+/* Angular Material Dark Theme Customization */
+.mat-mdc-card {
+  background: #2B1F1A !important;
+  color: #FFFFFF !important;
+}
+
+.mat-mdc-tab-group {
+  background: transparent;
+}
+
+.mat-mdc-tab-labels {
+  background: #3D2A1F;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.mat-mdc-tab .mdc-tab__text-label {
+  color: #CCCCCC;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: #FF8C42;
+}
+
+.mat-mdc-tab-header {
+  border-bottom: none;
+}
+
+.mat-mdc-tab-body-content {
+  overflow: visible !important;
+}
+
+/* Form Fields */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+  background: #3D2A1F !important;
+}
+
+.mat-mdc-form-field-infix {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #3D2A1F;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay {
+  opacity: 0;
+}
+
+/* Input Text Color */
+.mat-mdc-input-element {
+  color: #FFFFFF !important;
+  caret-color: #FF8C42;
+}
+
+.mat-mdc-input-element::placeholder {
+  color: #9A8A7F !important;
+  opacity: 1;
+}
+
+/* Labels */
+.mat-mdc-floating-label {
+  color: #CCCCCC !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: #FF8C42 !important;
+}
+
+/* Outline */
+.mat-mdc-notched-outline {
+  color: #5A4A3E;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: #FF8C42 !important;
+}
+
+/* Icons */
+.mat-icon {
+  color: #CCCCCC;
+}
+
+.mat-mdc-form-field.mat-focused .mat-icon {
+  color: #FF8C42;
+}
+
+/* Select Dropdown */
+.mat-mdc-select-value {
+  color: #FFFFFF;
+}
+
+.mat-mdc-select-arrow {
+  color: #CCCCCC;
+}
+
+/* Buttons */
+.mat-mdc-raised-button.mat-primary {
+  background-color: #FF8C42 !important;
+  color: #FFFFFF !important;
+}
+
+.mat-mdc-raised-button.mat-primary:hover:not([disabled]) {
+  background-color: #E67A30 !important;
+}
+
+.mat-mdc-raised-button:disabled {
+  background-color: #4A3A2E !important;
+  color: #9A8A7F !important;
+}
+
+.mat-mdc-icon-button {
+  color: #CCCCCC;
+}
+
+.mat-mdc-icon-button:hover {
+  color: #FFFFFF;
+}
+
+/* Error Messages */
+.mat-mdc-form-field-error {
+  color: #F44336;
+  font-size: 12px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2B1F1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5A4A3E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6A5A4E;
+}
+
+/* Material Select Panel */
+.mat-mdc-select-panel {
+  background: #3D2A1F !important;
+}
+
+.mat-mdc-option {
+  color: #FFFFFF !important;
+}
+
+.mat-mdc-option:hover {
+  background: #5A4A3E !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: #5A4A3E !important;
+  color: #FF8C42 !important;
+}
+
+/* Tab Indicator */
+.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,
+.mat-mdc-tab-header .mat-mdc-focus-indicator::before {
+  border-color: #FF8C42;
+}
+
+.mdc-tab-indicator__content--underline {
+  border-color: #FF8C42 !important;
+}
+
+/* Ripple Effect */
+.mat-ripple-element {
+  background-color: rgba(255, 140, 66, 0.1);
+}
