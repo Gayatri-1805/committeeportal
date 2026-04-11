@@ -17,6 +17,12 @@ public interface ApproverRepository extends JpaRepository<Approver, Long> {
     // Find by email (useful for login)
     Optional<Approver> findByEmail(String email);
     
+    // Find by email case insensitive
+    Approver findByEmailIgnoreCase(String email);
+    
+    // Check if email exists case insensitive
+    boolean existsByEmailIgnoreCase(String email);
+    
     // Find by name containing a string (case insensitive)
     List<Approver> findByNameContainingIgnoreCase(String name);
     
