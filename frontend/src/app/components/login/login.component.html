@@ -4,6 +4,14 @@
 
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="form-group">
+        <label for="loginRole">Login as:</label>
+        <select id="loginRole" name="loginRole" [(ngModel)]="role" required>
+          <option value="APPROVER">Approver</option>
+          <option value="COMMITTEE">Committee</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="email">Email:</label>
         <input
           type="email"

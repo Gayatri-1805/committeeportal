@@ -1,0 +1,347 @@
+<div class="dashboard-wrapper">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="brand-name">Committee Portal</span>
+    </div>
+    <div class="navbar-right">
+      <div class="user-info">
+        <div class="user-avatar">{{ committeeName.charAt(0).toUpperCase() }}</div>
+        <div class="user-meta">
+          <span class="user-name">{{ committeeName }}</span>
+          <span class="user-role">Committee</span>
+        </div>
+      </div>
+      <button class="btn-logout" (click)="logout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <main class="dashboard-main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1>Committee Dashboard</h1>
+        <p class="page-subtitle">Manage your events and track permission applications</p>
+      </div>
+      <button class="btn-refresh" (click)="loadData()" [disabled]="isLoading">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+          <polyline points="23 4 23 10 17 10"/>
+          <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+        </svg>
+        Refresh
+      </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card" (click)="setTab('events')" [class.stat-active]="activeTab === 'events'">
+        <div class="stat-indicator indicator-total"></div>
+        <div class="stat-body">
+          <span class="stat-number">{{ events.length }}</span>
+          <span class="stat-label">Total Events</span>
+        </div>
+      </div>
+      <div class="stat-card" (click)="setTab('applications')" [class.stat-active]="activeTab === 'applications'">
+        <div class="stat-indicator indicator-pending"></div>
+        <div class="stat-body">
+          <span class="stat-number">{{ pendingCount }}</span>
+          <span class="stat-label">Awaiting Approval</span>
+        </div>
+      </div>
+      <div class="stat-card" (click)="setTab('applications')" [class.stat-active]="false">
+        <div class="stat-indicator indicator-approved"></div>
+        <div class="stat-body">
+          <span class="stat-number">{{ approvedCount }}</span>
+          <span class="stat-label">Approved</span>
+        </div>
+      </div>
+      <div class="stat-card" (click)="setTab('applications')" [class.stat-active]="false">
+        <div class="stat-indicator indicator-rejected"></div>
+        <div class="stat-body">
+          <span class="stat-number">{{ rejectedCount }}</span>
+          <span class="stat-label">Rejected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alerts -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage && !isLoading" class="alert alert-error">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      {{ errorMessage }}
+    </div>
+
+    <!-- Tab Nav -->
+    <div class="tab-nav">
+      <button class="tab-btn" [class.active]="activeTab === 'applications'" (click)="setTab('applications')">
+        Permission Applications
+        <span class="tab-count" *ngIf="applications.length > 0">{{ applications.length }}</span>
+      </button>
+      <button class="tab-btn" [class.active]="activeTab === 'events'" (click)="setTab('events')">
+        My Events
+        <span class="tab-count" *ngIf="events.length > 0">{{ events.length }}</span>
+      </button>
+      <button class="tab-btn tab-btn-new" [class.active]="activeTab === 'new-event'" (click)="setTab('new-event')">
+        + New Event
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading data...</p>
+    </div>
+
+    <!-- ─── TAB: Applications ─── -->
+    <div *ngIf="!isLoading && activeTab === 'applications'">
+      <div *ngIf="applications.length === 0" class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+        </svg>
+        <p>No applications yet</p>
+        <span>Go to "My Events" to submit a permission application for an event.</span>
+      </div>
+
+      <div *ngIf="applications.length > 0" class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>App. ID</th>
+              <th>Event Name</th>
+              <th>Event Date</th>
+              <th>Submitted On</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let app of applications" class="table-row">
+              <td class="app-id">{{ app.applicationId }}</td>
+              <td class="event-name">{{ app.event?.eventName || '—' }}</td>
+              <td class="text-muted">{{ app.event?.eventDate ? (app.event.eventDate | date:'dd MMM yyyy') : '—' }}</td>
+              <td class="text-muted">{{ app.uploadDate ? (app.uploadDate | date:'dd MMM yyyy') : '—' }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(app.status)">
+                  {{ app.status || 'PENDING' }}
+                </span>
+              </td>
+              <td>
+                <button class="btn-action btn-details" (click)="openDetails(app)">View Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-footer">
+          {{ applications.length }} permission application{{ applications.length !== 1 ? 's' : '' }}
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TAB: Events ─── -->
+    <div *ngIf="!isLoading && activeTab === 'events'">
+      <div *ngIf="events.length === 0" class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <p>No events yet</p>
+        <span>Click "New Event" to create your first event.</span>
+        <button class="btn-cta" (click)="setTab('new-event')">Create Event</button>
+      </div>
+
+      <div *ngIf="events.length > 0" class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Event ID</th>
+              <th>Event Name</th>
+              <th>Event Date</th>
+              <th>Participants</th>
+              <th>Venue</th>
+              <th>Permission Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events" class="table-row">
+              <td class="app-id">{{ event.eventId }}</td>
+              <td class="event-name">{{ event.eventName }}</td>
+              <td class="text-muted">{{ event.eventDate ? (event.eventDate | date:'dd MMM yyyy') : '—' }}</td>
+              <td class="text-muted">{{ event.expectedParticipants || '—' }}</td>
+              <td class="text-muted">{{ event.venue?.venueName || '—' }}</td>
+              <td>
+                <ng-container *ngIf="getApplicationForEvent(event) as app">
+                  <span class="status-badge" [ngClass]="getStatusClass(app.status)">{{ app.status }}</span>
+                </ng-container>
+                <span *ngIf="!hasApplication(event)" class="status-badge badge-none">Not Submitted</span>
+              </td>
+              <td>
+                <button
+                  *ngIf="!hasApplication(event)"
+                  class="btn-action btn-apply"
+                  (click)="submitPermission(event)">
+                  Apply for Permission
+                </button>
+                <button
+                  *ngIf="hasApplication(event) && getApplicationForEvent(event) as app"
+                  class="btn-action btn-details"
+                  (click)="openDetails(app)">
+                  View Application
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-footer">
+          {{ events.length }} event{{ events.length !== 1 ? 's' : '' }} total
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TAB: New Event ─── -->
+    <div *ngIf="activeTab === 'new-event'" class="form-card">
+      <div class="form-card-header">
+        <h2>Create New Event</h2>
+        <p>Fill in the details to register a new event for your committee.</p>
+      </div>
+      <div class="form-card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventName">Event Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              [(ngModel)]="newEvent.eventName"
+              placeholder="e.g. Annual Cultural Fest"
+            />
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Event Date <span class="required">*</span></label>
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              [(ngModel)]="newEvent.eventDate"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expectedParticipants">Expected Participants</label>
+            <input
+              type="number"
+              id="expectedParticipants"
+              name="expectedParticipants"
+              [(ngModel)]="newEvent.expectedParticipants"
+              placeholder="e.g. 200"
+              min="1"
+            />
+          </div>
+          <div class="form-group">
+            <label for="venueId">Venue</label>
+            <select id="venueId" name="venueId" [(ngModel)]="newEvent.venueId">
+              <option [ngValue]="null">Select a venue (optional)</option>
+              <option *ngFor="let v of venues" [ngValue]="v.venueId">
+                {{ v.venueName }}{{ v.capacity ? ' (Cap: ' + v.capacity + ')' : '' }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div *ngIf="eventFormError" class="field-error">{{ eventFormError }}</div>
+
+        <div class="form-actions">
+          <button class="btn-cancel" type="button" (click)="setTab('events')">Cancel</button>
+          <button class="btn-submit" type="button" [disabled]="isSubmittingEvent" (click)="submitNewEvent()">
+            {{ isSubmittingEvent ? 'Creating...' : 'Create Event' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ─── Details Drawer ─── -->
+<div class="drawer-overlay" *ngIf="showDetailsDrawer" (click)="closeDetails()">
+  <div class="drawer" (click)="$event.stopPropagation()">
+    <div class="drawer-header">
+      <div>
+        <h3>Application Details</h3>
+        <p class="drawer-subtitle">Application #{{ selectedApp?.applicationId }}</p>
+      </div>
+      <button class="modal-close" (click)="closeDetails()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" *ngIf="selectedApp">
+
+      <div class="detail-section">
+        <p class="section-title">Application Info</p>
+        <div class="detail-row">
+          <span class="detail-label">Application ID</span>
+          <span class="detail-value">{{ selectedApp.applicationId }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Status</span>
+          <span class="status-badge" [ngClass]="getStatusClass(selectedApp.status)">{{ selectedApp.status || 'PENDING' }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Submitted On</span>
+          <span class="detail-value">{{ selectedApp.uploadDate ? (selectedApp.uploadDate | date:'dd MMM yyyy') : '—' }}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <p class="section-title">Event Info</p>
+        <div class="detail-row">
+          <span class="detail-label">Event Name</span>
+          <span class="detail-value">{{ selectedApp.event?.eventName || '—' }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Event Date</span>
+          <span class="detail-value">{{ selectedApp.event?.eventDate ? (selectedApp.event.eventDate | date:'dd MMM yyyy') : '—' }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Venue</span>
+          <span class="detail-value">{{ selectedApp.event?.venue?.venueName || '—' }}</span>
+        </div>
+      </div>
+
+      <!-- Approval status info banner -->
+      <div class="status-info-banner" [ngClass]="'banner-' + getStatusClass(selectedApp.status)">
+        <ng-container *ngIf="(selectedApp.status || '').toUpperCase() === 'APPROVED'">
+          Your permission application has been approved. You may proceed with the event.
+        </ng-container>
+        <ng-container *ngIf="(selectedApp.status || '').toUpperCase() === 'REJECTED'">
+          Your permission application was rejected. Please contact the approver for further information.
+        </ng-container>
+        <ng-container *ngIf="(selectedApp.status || '').toUpperCase() === 'SUBMITTED' || (selectedApp.status || '').toUpperCase() === 'PENDING'">
+          Your application is under review. You will be notified once a decision is made.
+        </ng-container>
+      </div>
+
+    </div>
+  </div>
+</div>

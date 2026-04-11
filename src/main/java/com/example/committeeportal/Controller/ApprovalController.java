@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.committeeportal.Entity.Approval;
 import com.example.committeeportal.Entity.Approver;
+import com.example.committeeportal.Entity.Event;
 import com.example.committeeportal.Entity.PermissionApplication;
 import com.example.committeeportal.Repository.ApprovalRepository;
 import com.example.committeeportal.Repository.ApproverRepository;
+import com.example.committeeportal.Repository.EventRepository;
 import com.example.committeeportal.Repository.PermissionApplicationRepository;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,6 +47,9 @@ public class ApprovalController {
     
     @Autowired
     private PermissionApplicationRepository permissionApplicationRepository;
+    
+    @Autowired
+    private EventRepository eventRepository;
     
     // GET all approvals
     @Operation(summary = "Get all approvals")
@@ -143,14 +148,24 @@ public class ApprovalController {
             Approver approver = approverOpt.get();
             
             // Update application status
-            application.setStatus(approvalDetails.getApprovalStatus());
+            String newStatus = approvalDetails.getApprovalStatus();
+            application.setStatus(newStatus);
             permissionApplicationRepository.save(application);
-            logger.debug("Updated application {} status to {}", applicationId, approvalDetails.getApprovalStatus());
+            logger.debug("Updated application {} status to {}", applicationId, newStatus);
+            
+            // Sync status with Event
+            Event event = application.getEvent();
+            if (event != null) {
+                event.setStatus(newStatus);
+                eventRepository.save(event);
+                logger.info("Synchronized Event ID {} status to {}", event.getEventId(), newStatus);
+            }
+            
             // Create approval record
             Approval approval = new Approval();
             approval.setPermissionApplication(application);
             approval.setApprover(approver);
-            approval.setApprovalStatus(approvalDetails.getApprovalStatus());
+            approval.setApprovalStatus(newStatus);
             approval.setRemarks(approvalDetails.getRemarks());
             approval.setApprovalDate(LocalDate.now());
             

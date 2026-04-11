@@ -132,4 +132,29 @@ public ResponseEntity<Approver> patchApprover(
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    // ✅ POST login for approver
+    @Operation(summary = "Login as an approver")
+    @PostMapping("/login")
+    public ResponseEntity<Approver> login(@RequestBody Approver loginRequest) {
+        logger.info("Approver login attempt for email: {}", loginRequest.getEmail());
+        try {
+            if (loginRequest.getEmail() == null || loginRequest.getPassword() == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            return approverRepository.findByEmail(loginRequest.getEmail())
+                    .filter(a -> a.getPassword() != null && a.getPassword().equals(loginRequest.getPassword()))
+                    .map(a -> {
+                        logger.info("Approver login successful for email: {}", loginRequest.getEmail());
+                        return ResponseEntity.ok(a);
+                    })
+                    .orElseGet(() -> {
+                        logger.warn("Approver login failed for email: {}", loginRequest.getEmail());
+                        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+                    });
+        } catch (Exception e) {
+            logger.error("Error during approver login", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }

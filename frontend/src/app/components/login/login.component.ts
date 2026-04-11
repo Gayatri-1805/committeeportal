@@ -10,6 +10,7 @@ import { AuthService, LoginRequest } from '../../services/auth.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  role: 'COMMITTEE' | 'APPROVER' = 'APPROVER';
   errorMessage: string = '';
   isLoading: boolean = false;
 
@@ -19,10 +20,8 @@ export class LoginComponent {
   ) { }
 
   onSubmit() {
-    // Reset error message
     this.errorMessage = '';
 
-    // Validation
     if (!this.email || !this.password) {
       this.errorMessage = 'Email and password are required';
       return;
@@ -32,26 +31,29 @@ export class LoginComponent {
 
     const loginData: LoginRequest = {
       email: this.email,
-      password: this.password
+      password: this.password,
+      role: this.role
     };
 
-    this.authService.login(loginData).subscribe(
-      (response: string) => {
+    this.authService.login(loginData).subscribe({
+      next: (role: string) => {
         this.isLoading = false;
-        if (response === 'COMMITTEE') {
+        if (role === 'COMMITTEE') {
           this.router.navigate(['/committee-dashboard']);
-        } else if (response === 'APPROVER') {
+        } else if (role === 'APPROVER') {
           this.router.navigate(['/approver-dashboard']);
-        } else {
-          this.errorMessage = 'Invalid credentials or role';
         }
       },
-      (error) => {
+      error: (err) => {
         this.isLoading = false;
-        this.errorMessage = 'Login failed. Please try again.';
-        console.error('Login error:', error);
+        if (err?.status === 401) {
+          this.errorMessage = 'Invalid email or password.';
+        } else {
+          this.errorMessage = 'Login failed. Please check if the server is running.';
+        }
+        console.error('Login error:', err);
       }
-    );
+    });
   }
 
   navigateToRegister() {
