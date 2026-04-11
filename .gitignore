@@ -36,3 +36,6 @@ frontend/node_modules/
 .angular/
 frontend/.angular/
 dist/
+
+### Logs ###
+logs/

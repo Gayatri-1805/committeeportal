@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable, map, catchError } from 'rxjs';
 
 export interface LoginRequest {
   email: string;
@@ -28,36 +27,33 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(data: LoginRequest): Observable<string> {
-    if (data.role === 'APPROVER') {
-      // POST /api/approvers/login  →  returns Approver object
-      return this.http.post<any>(`${this.BASE}/api/approvers/login`, {
-        email: data.email,
-        password: data.password
-      }).pipe(
-        map(approver => {
-          localStorage.setItem('userRole', 'APPROVER');
-          localStorage.setItem('approverId', approver.approverId.toString());
-          localStorage.setItem('userName', approver.name || 'Approver');
-          return 'APPROVER';
-        }),
-        catchError(err => throwError(() => err))
-      );
-    } else {
-      // POST /api/committees/login  →  returns Committee object
-      return this.http.post<any>(`${this.BASE}/api/committees/login`, {
-        contactEmail: data.email,
-        password: data.password
-      }).pipe(
-        map(committee => {
-          localStorage.setItem('userRole', 'COMMITTEE');
-          localStorage.setItem('committeeId', committee.id.toString());
-          localStorage.setItem('userName', committee.committeeName || 'Committee');
-          return 'COMMITTEE';
-        }),
-        catchError(err => throwError(() => err))
-      );
-    }
+  login(data: LoginRequest): Observable<LoginResponse> {
+    // Create login request with correct field names for Committee endpoint
+    const committeeLoginData = {
+      contactEmail: data.email,
+      password: data.password
+    };
+    
+    // Create login request for Approver endpoint
+    const approverLoginData = {
+      email: data.email,
+      password: data.password
+    };
+    
+    // Try to login as approver first
+    return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
+      map(response => ({ role: 'APPROVER', userId: response.approverId } as LoginResponse)),
+      catchError(() => {
+        // If approver login fails, try committee login
+        return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
+          map(response => ({ role: 'COMMITTEE', userId: response.id } as LoginResponse)),
+          catchError(() => {
+            // Both failed, throw error
+            throw new Error('Invalid credentials');
+          })
+        );
+      })
+    );
   }
 
   register(data: RegisterRequest): Observable<any> {
