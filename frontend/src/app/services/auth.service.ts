@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, catchError } from 'rxjs';
 
 export interface LoginRequest {
   email: string;
@@ -31,13 +31,30 @@ export class AuthService {
 
   login(data: LoginRequest): Observable<LoginResponse> {
     // Create login request with correct field names for Committee endpoint
-    const loginRequestData = {
+    const committeeLoginData = {
       contactEmail: data.email,
       password: data.password
     };
-    // Try to login as committee first
-    return this.http.post<any>(`${this.apiUrl}/api/committees/login`, loginRequestData).pipe(
-      map(response => ({ role: 'COMMITTEE', userId: response.id }))
+    
+    // Create login request for Approver endpoint
+    const approverLoginData = {
+      email: data.email,
+      password: data.password
+    };
+    
+    // Try to login as approver first
+    return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
+      map(response => ({ role: 'APPROVER', userId: response.approverId } as LoginResponse)),
+      catchError(() => {
+        // If approver login fails, try committee login
+        return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
+          map(response => ({ role: 'COMMITTEE', userId: response.id } as LoginResponse)),
+          catchError(() => {
+            // Both failed, throw error
+            throw new Error('Invalid credentials');
+          })
+        );
+      })
     );
   }
 

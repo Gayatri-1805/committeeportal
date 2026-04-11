@@ -64,6 +64,35 @@ public class ApproverController {
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
+    // ✅ POST login approver
+    @Operation(summary = "Login approver")
+    @PostMapping("/login")
+    public ResponseEntity<Approver> login(@RequestBody Approver loginRequest) {
+        logger.info("Login attempt for email: {}", loginRequest.getEmail());
+        try {
+            if (loginRequest.getEmail() == null || loginRequest.getPassword() == null) {
+                logger.warn("Login failed: missing email or password");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            
+            Approver approver = approverRepository.findByEmailIgnoreCase(loginRequest.getEmail());
+            
+            if (approver != null && approver.getPassword() != null && 
+                approver.getPassword().equals(loginRequest.getPassword())) {
+                logger.info("Login successful for email: {}", loginRequest.getEmail());
+                // Password matches
+                return ResponseEntity.ok(approver);
+            } else {
+                // Invalid credentials
+                logger.warn("Login failed for email: {}", loginRequest.getEmail());
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+        } catch (Exception e) {
+            logger.error("Error during login for email {}", loginRequest.getEmail(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
   
 
 
