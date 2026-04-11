@@ -36,11 +36,11 @@ export class LoginComponent {
     };
 
     this.authService.login(loginData).subscribe(
-      (response: string) => {
+      (response: any) => {
         this.isLoading = false;
-        if (response === 'COMMITTEE') {
+        if (response.role === 'COMMITTEE') {
           this.router.navigate(['/committee-dashboard']);
-        } else if (response === 'APPROVER') {
+        } else if (response.role === 'APPROVER') {
           this.router.navigate(['/approver-dashboard']);
         } else {
           this.errorMessage = 'Invalid credentials or role';
