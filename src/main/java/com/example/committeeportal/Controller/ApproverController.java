@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.committeeportal.DTO.LoginRequest;
+import com.example.committeeportal.DTO.LoginResponse;
 import com.example.committeeportal.Entity.Approver;
 import com.example.committeeportal.Repository.ApproverRepository;
+import com.example.committeeportal.Service.AuthService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -31,9 +34,11 @@ public class ApproverController {
      private static final Logger logger = LoggerFactory.getLogger(ApproverController.class);
 
     private final ApproverRepository approverRepository;
+    private final AuthService authService;
 
-    public ApproverController(ApproverRepository approverRepository) {
+    public ApproverController(ApproverRepository approverRepository, AuthService authService) {
         this.approverRepository = approverRepository;
+        this.authService = authService;
     }
 
     // ✅ GET all approvers
@@ -59,9 +64,17 @@ public class ApproverController {
     @PostMapping
     public ResponseEntity<Approver> createApprover(@RequestBody Approver approver) {
         logger.info("Creating new approver: {}", approver.getName());
-        Approver saved = approverRepository.save(approver);
-        logger.debug("Approver created successfully with ID: {}", saved.getApproverId());
-        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        try {
+            Approver saved = authService.registerApprover(approver);
+            logger.debug("Approver created successfully with ID: {}", saved.getApproverId());
+            return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            logger.warn("Error creating approver: {}", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            logger.error("Error creating approver", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
   
@@ -80,7 +93,12 @@ public ResponseEntity<Approver> updateApprover(
                 existing.setEmail(approverDetails.getEmail());
                 existing.setRole(approverDetails.getRole());
                 existing.setDigitalSignature(approverDetails.getDigitalSignature());
-                existing.setPassword(approverDetails.getPassword());
+                
+                // Use AuthService to encrypt password if provided
+                if (approverDetails.getPassword() != null) {
+                    authService.updateApproverPassword(id, approverDetails.getPassword());
+                }
+                
                 Approver updated = approverRepository.save(existing);
                 logger.info("Approver with ID {} updated successfully", id);
                 return ResponseEntity.ok(updated);
@@ -110,7 +128,8 @@ public ResponseEntity<Approver> patchApprover(
                     existing.setDigitalSignature(partial.getDigitalSignature());
                 }
                 if (partial.getPassword() != null) {
-                    existing.setPassword(partial.getPassword());
+                    // Use AuthService to encrypt password
+                    authService.updateApproverPassword(id, partial.getPassword());
                 }
                 Approver updated = approverRepository.save(existing);
                 logger.info("Approver with ID {} partially updated", id);
@@ -131,5 +150,23 @@ public ResponseEntity<Approver> patchApprover(
                     return ResponseEntity.noContent().<Void>build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // ✅ Login endpoint for approvers
+    @Operation(summary = "Login approver")
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        logger.info("Login attempt for approver email: {}", loginRequest.getEmail());
+        try {
+            LoginResponse response = authService.loginApprover(loginRequest);
+            logger.info("Login successful for approver email: {}", loginRequest.getEmail());
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException e) {
+            logger.warn("Login failed for email: {} - {}", loginRequest.getEmail(), e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        } catch (Exception e) {
+            logger.error("Error during login for email {}", loginRequest.getEmail(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }
