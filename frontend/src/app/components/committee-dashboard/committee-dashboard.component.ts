@@ -44,6 +44,7 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
   events: Event[] = [];
   applications: PermissionApplication[] = [];
   venues: Venue[] = [];
+  approvers: any[] = [];
 
   // UI State
   isLoading: boolean = false;
@@ -72,6 +73,11 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
   showDetailsDrawer: boolean = false;
   selectedApp: PermissionApplication | null = null;
 
+  // Targeted Approver Submit Modal
+  showSubmitModal: boolean = false;
+  selectedEventToSubmit: Event | null = null;
+  selectedApproverId: number | null = null;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -83,6 +89,7 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
     this.committeeName = this.authService.getUserName();
     this.loadData();
     this.loadVenues();
+    this.loadApprovers();
     this.pollInterval = setInterval(() => this.loadData(), this.POLL_MS);
   }
 
@@ -131,6 +138,14 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (venues) => { this.venues = venues || []; },
         error: (err) => console.error('Could not load venues', err)
+      });
+  }
+
+  loadApprovers(): void {
+    this.http.get<any[]>(`${this.BASE}/api/approvers`)
+      .subscribe({
+        next: (approvers) => { this.approvers = approvers || []; },
+        error: (err) => console.error('Could not load approvers', err)
       });
   }
 
@@ -190,20 +205,43 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
 
   // ─── Submit permission application ──────
   submitPermission(event: Event): void {
-    if (!confirm(`Submit a permission application for "${event.eventName}"?`)) return;
+    this.selectedEventToSubmit = event;
+    this.selectedApproverId = null;
+    this.errorMessage = '';
+    this.showSubmitModal = true;
+  }
 
+  closeSubmitModal(): void {
+    this.showSubmitModal = false;
+    this.selectedEventToSubmit = null;
+    this.selectedApproverId = null;
+  }
+
+  confirmSubmitPermission(): void {
+    if (!this.selectedEventToSubmit) return;
+    if (!this.selectedApproverId) {
+       this.errorMessage = 'Please select an approver.';
+       setTimeout(() => this.errorMessage = '', 4000);
+       return;
+    }
+
+    const event = this.selectedEventToSubmit;
+    const approverId = this.selectedApproverId;
     const payload = { permissionDoc: '' };
+
     this.http.post<PermissionApplication>(
-      `${this.BASE}/permissions/submit/${event.eventId}`, payload
+      `${this.BASE}/permissions/submit/${event.eventId}/${approverId}`, payload
     ).subscribe({
       next: () => {
-        this.successMessage = `Permission application submitted for "${event.eventName}".`;
+        this.successMessage = `Permission application submitted to approver for "${event.eventName}".`;
         this.loadData();
+        this.closeSubmitModal();
         setTimeout(() => this.successMessage = '', 4000);
       },
       error: (err) => {
         this.errorMessage = 'Failed to submit permission application.';
         console.error(err);
+        this.closeSubmitModal();
         setTimeout(() => this.errorMessage = '', 4000);
       }
     });

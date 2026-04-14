@@ -345,3 +345,37 @@
     </div>
   </div>
 </div>
+
+<!-- ─── Submit Permission Modal ─── -->
+<div class="drawer-overlay" *ngIf="showSubmitModal" (click)="closeSubmitModal()">
+  <div class="drawer" style="max-width: 450px;" (click)="$event.stopPropagation()">
+    <div class="drawer-header">
+      <div>
+        <h3>Assign Approver</h3>
+        <p class="drawer-subtitle">Select an approver for "{{ selectedEventToSubmit?.eventName }}"</p>
+      </div>
+      <button class="modal-close" (click)="closeSubmitModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <div class="form-group" style="padding-bottom: 20px;">
+        <label for="approverSelect" style="display: block; margin-bottom: 8px; color: var(--text-dark); font-weight: 500;">Select Approver</label>
+        <select id="approverSelect" [(ngModel)]="selectedApproverId" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px;">
+          <option [ngValue]="null" disabled selected>-- Choose Approver --</option>
+          <option *ngFor="let approver of approvers" [ngValue]="approver.approverId">
+            {{ approver.name }} ({{ approver.role }})
+          </option>
+        </select>
+        <p *ngIf="approvers.length === 0" style="color: #d32f2f; font-size: 0.85rem; margin-top: 5px;">No approvers available. Registration required.</p>
+      </div>
+
+      <div class="form-actions" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn-cancel" (click)="closeSubmitModal()">Cancel</button>
+        <button class="btn-submit" (click)="confirmSubmitPermission()" [disabled]="!selectedApproverId">Submit Application</button>
+      </div>
+    </div>
+  </div>
+</div>

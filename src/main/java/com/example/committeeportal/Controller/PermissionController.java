@@ -78,14 +78,32 @@ public class PermissionController {
         }
     }
 
-    // Submit a new permission application for an event
-    @PostMapping("/submit/{eventId}")
-    public PermissionApplication submitApplication(@PathVariable Long eventId, @RequestBody PermissionApplication application) {
-        logger.info("Submitting permission application for event ID {}", eventId);
+    // Get all permission applications targeted at a specific approver
+    @Operation(summary = "Get permission applications by approver id")
+    @GetMapping("/approver/{approverId}")
+    public List<PermissionApplication> getApplicationsByApprover(@PathVariable Long approverId) {
+        logger.info("Fetching permission applications for approver ID {}", approverId);
+        try {
+            List<PermissionApplication> applications = permissionRepo.findByApprover_ApproverId(approverId);
+            logger.info("Found {} targeted applications", applications.size());
+            return applications;
+        } catch (Exception e) {
+            logger.error("Error fetching targeted applications", e);
+            return List.of();
+        }
+    }
+
+    // Submit a new permission application for an event to a specific approver
+    @PostMapping("/submit/{eventId}/{approverId}")
+    public PermissionApplication submitApplication(@PathVariable Long eventId, @PathVariable Long approverId, @RequestBody PermissionApplication application) {
+        logger.info("Submitting permission application for event ID {} to approver ID {}", eventId, approverId);
         Optional<Event> eventOpt = eventRepo.findById(eventId);
-        if (eventOpt.isPresent()) {
+        Optional<Approver> approverOpt = approverRepo.findById(approverId);
+        
+        if (eventOpt.isPresent() && approverOpt.isPresent()) {
             Event event = eventOpt.get();
             application.setEvent(event);
+            application.setApprover(approverOpt.get());
             application.setUploadDate(LocalDate.now());
             application.setStatus("Submitted");
             

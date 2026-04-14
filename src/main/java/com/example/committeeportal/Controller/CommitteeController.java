@@ -193,7 +193,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
                     return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
                 }
                 
-                Committee committee = committeeRepository.findByContactEmailIgnoreCase(loginRequest.getContactEmail());
+                Committee committee = committeeRepository.findFirstByContactEmailIgnoreCase(loginRequest.getContactEmail());
                 
                 if (committee != null && committee.getPassword() != null && 
                     committee.getPassword().equals(loginRequest.getPassword())) {

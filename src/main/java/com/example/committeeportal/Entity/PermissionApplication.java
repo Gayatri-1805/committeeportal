@@ -33,6 +33,10 @@ public class PermissionApplication {
     @Column(name = "status")
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "approver_id", referencedColumnName = "approver_id")
+    private Approver approver;
+
     // Getters and Setters
     public Long getApplicationId() { return applicationId; }
     public void setApplicationId(Long applicationId) { this.applicationId = applicationId; }
@@ -48,4 +52,7 @@ public class PermissionApplication {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public Approver getApprover() { return approver; }
+    public void setApprover(Approver approver) { this.approver = approver; }
 }

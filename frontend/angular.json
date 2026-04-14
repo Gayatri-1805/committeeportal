@@ -40,8 +40,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
                 }
               ],
               "outputHashing": "all"
@@ -57,25 +57,28 @@
           },
           "defaultConfiguration": "production"
         },
-       "serve": {
-  "builder": "@angular-devkit/build-angular:dev-server",
-  "options": {
-    "proxyConfig": "proxy.conf.json"
-  },
-  "configurations": {
-    "production": {
-      "buildTarget": "committee-management-system:build:production"
-    },
-    "development": {
-      "buildTarget": "committee-management-system:build:development"
-    }
-  },
-  "defaultConfiguration": "development"
-}
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "committee-management-system:build:production"
+            },
+            "development": {
+              "buildTarget": "committee-management-system:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
       }
     }
   },
   "cli": {
-    "analytics": "ff4f5047-1c4e-4eaf-8c2d-e5c451c69307"
+    "analytics": "ff4f5047-1c4e-4eaf-8c2d-e5c451c69307",
+    "cache": {
+      "enabled": false
+    }
   }
 }

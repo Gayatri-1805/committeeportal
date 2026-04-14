@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/api/approvers")
 public class ApproverController {
 
-     private static final Logger logger = LoggerFactory.getLogger(ApproverController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApproverController.class);
 
     private final ApproverRepository approverRepository;
 
@@ -51,7 +51,7 @@ public class ApproverController {
         logger.info("Fetching approver with ID: {}", id);
         Optional<Approver> approver = approverRepository.findById(id);
         return approver.map(ResponseEntity::ok)
-                       .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // ✅ POST create new approver
@@ -59,94 +59,70 @@ public class ApproverController {
     @PostMapping
     public ResponseEntity<Approver> createApprover(@RequestBody Approver approver) {
         logger.info("Creating new approver: {}", approver.getName());
+        
+        if (approver.getEmail() != null && approverRepository.existsByEmailIgnoreCase(approver.getEmail())) {
+            logger.warn("Approver email {} already exists", approver.getEmail());
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
         Approver saved = approverRepository.save(approver);
         logger.debug("Approver created successfully with ID: {}", saved.getApproverId());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     // ✅ POST login approver
-    @Operation(summary = "Login approver")
-    @PostMapping("/login")
-    public ResponseEntity<Approver> login(@RequestBody Approver loginRequest) {
-        logger.info("Login attempt for email: {}", loginRequest.getEmail());
-        try {
-            if (loginRequest.getEmail() == null || loginRequest.getPassword() == null) {
-                logger.warn("Login failed: missing email or password");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-            }
-            
-            Approver approver = approverRepository.findByEmailIgnoreCase(loginRequest.getEmail());
-            
-            if (approver != null && approver.getPassword() != null && 
-                approver.getPassword().equals(loginRequest.getPassword())) {
-                logger.info("Login successful for email: {}", loginRequest.getEmail());
-                // Password matches
-                return ResponseEntity.ok(approver);
-            } else {
-                // Invalid credentials
-                logger.warn("Login failed for email: {}", loginRequest.getEmail());
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-            }
-        } catch (Exception e) {
-            logger.error("Error during login for email {}", loginRequest.getEmail(), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
-  
-
 
     // ✅ PUT update (replace entire object)
-@Operation(summary = "Replace approval by id (PUT)")    
-@PutMapping("/{id}")
-public ResponseEntity<Approver> updateApprover(
-        @PathVariable Long id,
-        @RequestBody Approver approverDetails) {
-    logger.info("Updating approver with ID: {}", id);       
-    return approverRepository.findById(id)
-            .map(existing -> {
-                existing.setName(approverDetails.getName());
-                existing.setEmail(approverDetails.getEmail());
-                existing.setRole(approverDetails.getRole());
-                existing.setDigitalSignature(approverDetails.getDigitalSignature());
-                existing.setPassword(approverDetails.getPassword());
-                Approver updated = approverRepository.save(existing);
-                logger.info("Approver with ID {} updated successfully", id);
-                return ResponseEntity.ok(updated);
-            })
-            .orElseGet(() -> ResponseEntity.notFound().build());
-}
+    @Operation(summary = "Replace approval by id (PUT)")
+    @PutMapping("/{id}")
+    public ResponseEntity<Approver> updateApprover(
+            @PathVariable Long id,
+            @RequestBody Approver approverDetails) {
+        logger.info("Updating approver with ID: {}", id);
+        return approverRepository.findById(id)
+                .map(existing -> {
+                    existing.setName(approverDetails.getName());
+                    existing.setEmail(approverDetails.getEmail());
+                    existing.setRole(approverDetails.getRole());
+                    existing.setDigitalSignature(approverDetails.getDigitalSignature());
+                    existing.setPassword(approverDetails.getPassword());
+                    Approver updated = approverRepository.save(existing);
+                    logger.info("Approver with ID {} updated successfully", id);
+                    return ResponseEntity.ok(updated);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     // ✅ PATCH partial update
-@Operation(summary = "Patch a single field of approval")    
-@PatchMapping("/{id}")
-public ResponseEntity<Approver> patchApprover(
-        @PathVariable Long id,
-        @RequestBody Approver partial) {
-    logger.info("Patching approver with ID: {}", id);        
-    return approverRepository.findById(id)
-            .map(existing -> {
-                if (partial.getName() != null) {
-                    existing.setName(partial.getName());
-                }
-                if (partial.getEmail() != null) {
-                    existing.setEmail(partial.getEmail());
-                }
-                if (partial.getRole() != null) {
-                    existing.setRole(partial.getRole());
-                }
-                if (partial.getDigitalSignature() != null) {
-                    existing.setDigitalSignature(partial.getDigitalSignature());
-                }
-                if (partial.getPassword() != null) {
-                    existing.setPassword(partial.getPassword());
-                }
-                Approver updated = approverRepository.save(existing);
-                logger.info("Approver with ID {} partially updated", id);
-                return ResponseEntity.ok(updated);
-            })
-            .orElseGet(() -> ResponseEntity.notFound().build());
-}
+    @Operation(summary = "Patch a single field of approval")
+    @PatchMapping("/{id}")
+    public ResponseEntity<Approver> patchApprover(
+            @PathVariable Long id,
+            @RequestBody Approver partial) {
+        logger.info("Patching approver with ID: {}", id);
+        return approverRepository.findById(id)
+                .map(existing -> {
+                    if (partial.getName() != null) {
+                        existing.setName(partial.getName());
+                    }
+                    if (partial.getEmail() != null) {
+                        existing.setEmail(partial.getEmail());
+                    }
+                    if (partial.getRole() != null) {
+                        existing.setRole(partial.getRole());
+                    }
+                    if (partial.getDigitalSignature() != null) {
+                        existing.setDigitalSignature(partial.getDigitalSignature());
+                    }
+                    if (partial.getPassword() != null) {
+                        existing.setPassword(partial.getPassword());
+                    }
+                    Approver updated = approverRepository.save(existing);
+                    logger.info("Approver with ID {} partially updated", id);
+                    return ResponseEntity.ok(updated);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     // ✅ DELETE approver
     @Operation(summary = "Delete approval by id")
@@ -171,7 +147,7 @@ public ResponseEntity<Approver> patchApprover(
             if (loginRequest.getEmail() == null || loginRequest.getPassword() == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
             }
-            return approverRepository.findByEmail(loginRequest.getEmail())
+            return approverRepository.findFirstByEmail(loginRequest.getEmail())
                     .filter(a -> a.getPassword() != null && a.getPassword().equals(loginRequest.getPassword()))
                     .map(a -> {
                         logger.info("Approver login successful for email: {}", loginRequest.getEmail());

@@ -10,6 +10,7 @@ import { AuthService, LoginRequest } from '../../services/auth.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  role: string = 'APPROVER';
   errorMessage: string = '';
   isLoading: boolean = false;
 
@@ -36,19 +37,17 @@ export class LoginComponent {
     };
 
     this.authService.login(loginData).subscribe(
-      (response: any) => {
+      (response) => {
         this.isLoading = false;
         if (response.role === 'COMMITTEE') {
           this.router.navigate(['/committee-dashboard']);
         } else if (response.role === 'APPROVER') {
           this.router.navigate(['/approver-dashboard']);
-        } else {
-          this.errorMessage = 'Invalid credentials or role';
         }
       },
       (error) => {
         this.isLoading = false;
-        this.errorMessage = 'Login failed. Please try again.';
+        this.errorMessage = 'Login failed. Please check your credentials.';
         console.error('Login error:', error);
       }
     );
