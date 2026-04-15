@@ -85,8 +85,8 @@ export class ApproverDashboardComponent implements OnInit, OnDestroy {
   loadApplications(): void {
     this.isLoading = true;
     this.errorMessage = '';
-    // Endpoint: GET /permissions
-    this.http.get<PermissionApplication[]>(`${this.BASE}/permissions`)
+    // Endpoint: GET /permissions/approver/{approverId}
+    this.http.get<PermissionApplication[]>(`${this.BASE}/permissions/approver/${this.approverId}`)
       .subscribe({
         next: (data) => {
           this.applications = data || [];
@@ -95,7 +95,7 @@ export class ApproverDashboardComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         },
         error: (err) => {
-          this.errorMessage = 'Failed to load applications. Please check if the server is running.';
+          this.errorMessage = 'Failed to load targeted applications.';
           this.isLoading = false;
           console.error('Load error:', err);
         }

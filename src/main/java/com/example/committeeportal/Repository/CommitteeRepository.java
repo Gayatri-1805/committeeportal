@@ -17,7 +17,7 @@ public interface CommitteeRepository extends JpaRepository<Committee, Long> {
     List<Committee> findByHeadOfCommitteeContainingIgnoreCase(String head);
     
     // Find by email
-    Committee findByContactEmailIgnoreCase(String email);
+    Committee findFirstByContactEmailIgnoreCase(String email);
     
     // Check if committee name exists
     boolean existsByCommitteeNameIgnoreCase(String committeeName);

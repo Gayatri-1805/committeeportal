@@ -196,12 +196,23 @@ import io.swagger.v3.oas.annotations.tags.Tag;
         public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
             logger.info("Login attempt for email: {}", loginRequest.getEmail()); 
             try {
-                LoginResponse response = authService.loginCommittee(loginRequest);
-                logger.info("Login successful for email: {}", loginRequest.getEmail());
-                return ResponseEntity.ok(response);
-            } catch (IllegalArgumentException e) {
-                logger.warn("Login failed for email: {} - {}", loginRequest.getEmail(), e.getMessage());
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+                if (loginRequest.getContactEmail() == null || loginRequest.getPassword() == null) {
+                    logger.warn("Login failed: missing email or password");
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+                }
+                
+                Committee committee = committeeRepository.findFirstByContactEmailIgnoreCase(loginRequest.getContactEmail());
+                
+                if (committee != null && committee.getPassword() != null && 
+                    committee.getPassword().equals(loginRequest.getPassword())) {
+                    logger.info("Login successful for email: {}", loginRequest.getContactEmail());
+                        // Password matches
+                    return ResponseEntity.ok(committee);
+                } else {
+                    // Invalid credentials
+                    logger.warn("Login failed for email: {}", loginRequest.getContactEmail());
+                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+                }
             } catch (Exception e) {
                 logger.error("Error during login for email {}", loginRequest.getEmail(), e);
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

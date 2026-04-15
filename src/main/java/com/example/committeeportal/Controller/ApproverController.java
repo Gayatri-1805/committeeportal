@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/api/approvers")
 public class ApproverController {
 
-     private static final Logger logger = LoggerFactory.getLogger(ApproverController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApproverController.class);
 
     private final ApproverRepository approverRepository;
     private final AuthService authService;
@@ -56,7 +56,7 @@ public class ApproverController {
         logger.info("Fetching approver with ID: {}", id);
         Optional<Approver> approver = approverRepository.findById(id);
         return approver.map(ResponseEntity::ok)
-                       .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // ✅ POST create new approver

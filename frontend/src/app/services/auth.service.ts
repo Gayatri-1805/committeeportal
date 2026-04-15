@@ -19,6 +19,7 @@ export interface RegisterRequest {
 export interface LoginResponse {
   role: 'COMMITTEE' | 'APPROVER';
   userId: number;
+  userName: string;
 }
 
 @Injectable({
@@ -30,32 +31,77 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: LoginRequest): Observable<LoginResponse> {
-    // Create login request with correct field names for Committee endpoint
     const committeeLoginData = {
       contactEmail: data.email,
       password: data.password
     };
 
-    // Create login request for Approver endpoint
     const approverLoginData = {
       email: data.email,
       password: data.password
     };
 
-    // Try to login as approver first
     return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
-      map(response => ({ role: 'APPROVER', userId: response.approverId } as LoginResponse)),
+      map(response => {
+        const loginResponse: LoginResponse = { 
+          role: 'APPROVER', 
+          userId: response.approverId,
+          userName: response.name || 'Approver'
+        };
+        this.saveSession(loginResponse);
+        return loginResponse;
+      }),
       catchError(() => {
-        // If approver login fails, try committee login
         return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
-          map(response => ({ role: 'COMMITTEE', userId: response.id } as LoginResponse)),
+          map(response => {
+            const loginResponse: LoginResponse = { 
+              role: 'COMMITTEE', 
+              userId: response.id,
+              userName: response.committeeName || 'Committee'
+            };
+            this.saveSession(loginResponse);
+            return loginResponse;
+          }),
           catchError(() => {
-            // Both failed, throw error
             throw new Error('Invalid credentials');
           })
         );
       })
     );
+  }
+
+  private saveSession(data: LoginResponse): void {
+    localStorage.setItem('role', data.role);
+    localStorage.setItem('userId', data.userId.toString());
+    localStorage.setItem('userName', data.userName);
+  }
+
+  logout(): void {
+    localStorage.removeItem('role');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+  }
+
+  getRole(): string | null {
+    return localStorage.getItem('role');
+  }
+
+  getApproverId(): number {
+    const id = localStorage.getItem('userId');
+    return id ? parseInt(id, 10) : 0;
+  }
+
+  getCommitteeId(): number {
+    const id = localStorage.getItem('userId');
+    return id ? parseInt(id, 10) : 0;
+  }
+
+  getUserName(): string {
+    return localStorage.getItem('userName') || 'User';
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('userId');
   }
 
   register(data: RegisterRequest): Observable<any> {
