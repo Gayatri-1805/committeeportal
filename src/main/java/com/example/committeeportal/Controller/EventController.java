@@ -2,9 +2,11 @@ package com.example.committeeportal.Controller;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.committeeportal.Entity.Event;
 import com.example.committeeportal.Repository.EventRepository;
+import com.example.committeeportal.ResponseBean.ErrorResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -51,9 +54,20 @@ public class EventController{
     //Create new event
     @Operation(summary = "Create a new event")
     @PostMapping
-    public Event createEvent(@RequestBody Event event) {
+    public ResponseEntity<?> createEvent(@RequestBody Event event) {
         logger.info("Creating new event: {}", event.getEventName());
-        return eventRepository.save(event);
+        
+        // Validate that event date is not in the past
+        if (event.getEventDate() != null && event.getEventDate().isBefore(LocalDate.now())) {
+            logger.warn("Attempt to create event with past date: {}", event.getEventDate());
+            return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse("Event date cannot be in the past. Please select a future date."));
+        }
+        
+        Event createdEvent = eventRepository.save(event);
+        logger.info("Event created successfully with ID: {}", createdEvent.getEventId());
+        return ResponseEntity.ok(createdEvent);
     }
     
     //update full event

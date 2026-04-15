@@ -33,7 +33,8 @@ export class LoginComponent {
 
     const loginData: LoginRequest = {
       email: this.email,
-      password: this.password
+      password: this.password,
+      role: this.role as 'COMMITTEE' | 'APPROVER'
     };
 
     this.authService.login(loginData).subscribe(

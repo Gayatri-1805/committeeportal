@@ -59,6 +59,24 @@ public class ApproverController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    // ✅ POST register new approver
+    @Operation(summary = "Register a new approver")
+    @PostMapping("/register")
+    public ResponseEntity<Approver> registerApprover(@RequestBody Approver approver) {
+        logger.info("Registering new approver: {}", approver.getName());
+        try {
+            Approver saved = authService.registerApprover(approver);
+            logger.debug("Approver registered successfully with ID: {}", saved.getApproverId());
+            return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            logger.warn("Error registering approver: {}", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            logger.error("Error registering approver", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     // ✅ POST create new approver
     @Operation(summary = "Create a new approval")
     @PostMapping

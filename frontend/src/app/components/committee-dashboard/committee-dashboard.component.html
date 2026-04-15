@@ -240,6 +240,7 @@
               id="eventDate"
               name="eventDate"
               [(ngModel)]="newEvent.eventDate"
+              [min]="getTodayDateString()"
             />
           </div>
         </div>

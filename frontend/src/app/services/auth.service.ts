@@ -5,6 +5,7 @@ import { Observable, map, catchError } from 'rxjs';
 export interface LoginRequest {
   email: string;
   password: string;
+  role?: 'COMMITTEE' | 'APPROVER';
 }
 
 export interface RegisterRequest {
@@ -32,7 +33,7 @@ export class AuthService {
 
   login(data: LoginRequest): Observable<LoginResponse> {
     const committeeLoginData = {
-      contactEmail: data.email,
+      email: data.email,
       password: data.password
     };
 
@@ -41,14 +42,74 @@ export class AuthService {
       password: data.password
     };
 
+    // Try the selected role first, then fallback
+    if (data.role === 'COMMITTEE') {
+      return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
+        map(response => {
+          const loginResponse: LoginResponse = { 
+            role: 'COMMITTEE', 
+            userId: response.userId,
+            userName: response.userName || 'Committee'
+          };
+          this.saveSession(loginResponse, response.token);
+          return loginResponse;
+        }),
+        catchError(() => {
+          return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
+            map(response => {
+              const loginResponse: LoginResponse = { 
+                role: 'APPROVER', 
+                userId: response.userId,
+                userName: response.userName || 'Approver'
+              };
+              this.saveSession(loginResponse, response.token);
+              return loginResponse;
+            }),
+            catchError(() => {
+              throw new Error('Invalid credentials');
+            })
+          );
+        })
+      );
+    } else if (data.role === 'APPROVER') {
+      return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
+        map(response => {
+          const loginResponse: LoginResponse = { 
+            role: 'APPROVER', 
+            userId: response.userId,
+            userName: response.userName || 'Approver'
+          };
+          this.saveSession(loginResponse, response.token);
+          return loginResponse;
+        }),
+        catchError(() => {
+          return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
+            map(response => {
+              const loginResponse: LoginResponse = { 
+                role: 'COMMITTEE', 
+                userId: response.userId,
+                userName: response.userName || 'Committee'
+              };
+              this.saveSession(loginResponse, response.token);
+              return loginResponse;
+            }),
+            catchError(() => {
+              throw new Error('Invalid credentials');
+            })
+          );
+        })
+      );
+    }
+
+    // Default fallback (try approver first)
     return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
       map(response => {
         const loginResponse: LoginResponse = { 
           role: 'APPROVER', 
-          userId: response.approverId,
-          userName: response.name || 'Approver'
+          userId: response.userId,
+          userName: response.userName || 'Approver'
         };
-        this.saveSession(loginResponse);
+        this.saveSession(loginResponse, response.token);
         return loginResponse;
       }),
       catchError(() => {
@@ -56,10 +117,10 @@ export class AuthService {
           map(response => {
             const loginResponse: LoginResponse = { 
               role: 'COMMITTEE', 
-              userId: response.id,
-              userName: response.committeeName || 'Committee'
+              userId: response.userId,
+              userName: response.userName || 'Committee'
             };
-            this.saveSession(loginResponse);
+            this.saveSession(loginResponse, response.token);
             return loginResponse;
           }),
           catchError(() => {
@@ -70,16 +131,21 @@ export class AuthService {
     );
   }
 
-  private saveSession(data: LoginResponse): void {
+  private saveSession(data: LoginResponse, token?: string): void {
     localStorage.setItem('role', data.role);
     localStorage.setItem('userId', data.userId.toString());
     localStorage.setItem('userName', data.userName);
+    // Save token if provided
+    if (token) {
+      localStorage.setItem('token', token);
+    }
   }
 
   logout(): void {
     localStorage.removeItem('role');
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
+    localStorage.removeItem('token');
   }
 
   getRole(): string | null {
@@ -106,23 +172,23 @@ export class AuthService {
 
   register(data: RegisterRequest): Observable<any> {
     if (data.role === 'COMMITTEE') {
-      // For committee registration, send to /api/committees
+      // For committee registration, send to /api/committees/register
       const committeeData = {
         committeeName: data.committeeName,
         contactEmail: data.email,
         password: data.password,
         headOfCommittee: data.facultyInChargeName
       };
-      return this.http.post<any>(`${this.apiUrl}/api/committees`, committeeData);
+      return this.http.post<any>(`${this.apiUrl}/api/committees/register`, committeeData);
     } else if (data.role === 'APPROVER') {
-      // For approver registration, send to /api/approvers
+      // For approver registration, send to /api/approvers/register
       const approverData = {
         name: data.name,
         email: data.email,
         password: data.password,
         role: 'APPROVER'
       };
-      return this.http.post<any>(`${this.apiUrl}/api/approvers`, approverData);
+      return this.http.post<any>(`${this.apiUrl}/api/approvers/register`, approverData);
     }
     throw new Error('Invalid role');
   }

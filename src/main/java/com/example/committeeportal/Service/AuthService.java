@@ -1,5 +1,11 @@
 package com.example.committeeportal.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.example.committeeportal.DTO.LoginRequest;
 import com.example.committeeportal.DTO.LoginResponse;
 import com.example.committeeportal.Entity.Approver;
@@ -7,11 +13,6 @@ import com.example.committeeportal.Entity.Committee;
 import com.example.committeeportal.Repository.ApproverRepository;
 import com.example.committeeportal.Repository.CommitteeRepository;
 import com.example.committeeportal.Security.JwtUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
@@ -41,7 +42,7 @@ public class AuthService {
             throw new IllegalArgumentException("Email and password are required");
         }
 
-        Committee committee = committeeRepository.findByContactEmailIgnoreCase(loginRequest.getEmail());
+        Committee committee = committeeRepository.findFirstByContactEmailIgnoreCase(loginRequest.getEmail());
 
         if (committee != null && passwordEncoder.matches(loginRequest.getPassword(), committee.getPassword())) {
             logger.info("Login successful for committee email: {}", loginRequest.getEmail());
@@ -65,7 +66,7 @@ public class AuthService {
             throw new IllegalArgumentException("Email and password are required");
         }
 
-        Approver approver = approverRepository.findByEmailIgnoreCase(loginRequest.getEmail());
+        Approver approver = approverRepository.findFirstByEmailIgnoreCase(loginRequest.getEmail());
 
         if (approver != null && passwordEncoder.matches(loginRequest.getPassword(), approver.getPassword())) {
             logger.info("Login successful for approver email: {}", loginRequest.getEmail());

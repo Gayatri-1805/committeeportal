@@ -99,15 +99,18 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
 
   loadData(): void {
     this.isLoading = true;
+    this.errorMessage = ''; // Clear previous errors
 
     // Load this committee's events
     this.http.get<Event[]>(`${this.BASE}/events/committee/${this.committeeId}`)
       .subscribe({
         next: (events) => {
           this.events = events || [];
+          this.errorMessage = ''; // Clear error on success
           this.loadApplications();
         },
         error: (err) => {
+          this.events = [];
           this.errorMessage = 'Failed to load events.';
           this.isLoading = false;
           console.error(err);
@@ -122,10 +125,12 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
         next: (apps) => {
           const myEventIds = new Set(this.events.map(e => e.eventId));
           this.applications = (apps || []).filter(a => myEventIds.has(a.event?.eventId));
+          this.errorMessage = ''; // Clear error on success
           this.calculateStats();
           this.isLoading = false;
         },
         error: (err) => {
+          this.applications = [];
           this.errorMessage = 'Failed to load applications.';
           this.isLoading = false;
           console.error(err);
@@ -136,8 +141,14 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
   loadVenues(): void {
     this.http.get<Venue[]>(`${this.BASE}/api/venues`)
       .subscribe({
-        next: (venues) => { this.venues = venues || []; },
-        error: (err) => console.error('Could not load venues', err)
+        next: (venues) => {
+          this.venues = venues || [];
+          console.log('Venues loaded successfully:', this.venues);
+        },
+        error: (err) => {
+          console.error('Failed to load venues:', err);
+          this.venues = [];
+        }
       });
   }
 
@@ -172,6 +183,16 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
       this.eventFormError = 'Event date is required.'; return;
     }
 
+    // Validate that event date is not in the past
+    const eventDate = new Date(this.newEvent.eventDate + 'T00:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (eventDate < today) {
+      this.eventFormError = 'Event date cannot be in the past. Please select a future date.'; 
+      return;
+    }
+
     this.isSubmittingEvent = true;
 
     const payload: any = {
@@ -197,7 +218,7 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
       },
       error: (err) => {
         this.isSubmittingEvent = false;
-        this.eventFormError = 'Failed to create event. Please try again.';
+        this.eventFormError = err.error?.message || 'Failed to create event. Please try again.';
         console.error(err);
       }
     });
@@ -272,6 +293,14 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
     if (s === 'APPROVED') return 'badge-approved';
     if (s === 'REJECTED')  return 'badge-rejected';
     return 'badge-pending';
+  }
+
+  getTodayDateString(): string {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   logout(): void {

@@ -80,6 +80,38 @@ import io.swagger.v3.oas.annotations.tags.Tag;
             }
         }
         
+        // Register a new committee
+        @Operation(summary = "Register a new committee")
+        @PostMapping("/register")
+        public ResponseEntity<Committee> registerCommittee(@RequestBody Committee committee) {
+            logger.info("Registering new committee: {}", committee.getCommitteeName());
+            try {
+                // Check if committee name already exists
+                if (committeeRepository.existsByCommitteeNameIgnoreCase(committee.getCommitteeName())) {
+                    logger.warn("Committee name {} already exists", committee.getCommitteeName());
+                    return ResponseEntity.status(HttpStatus.CONFLICT).build();
+                }
+                
+                // Check if email already exists
+                if (committee.getContactEmail() != null && 
+                    committeeRepository.existsByContactEmailIgnoreCase(committee.getContactEmail())) {
+                    logger.warn("Email {} already exists", committee.getContactEmail());
+                    return ResponseEntity.status(HttpStatus.CONFLICT).build();
+                }
+                
+                // Register with encrypted password
+                Committee savedCommittee = authService.registerCommittee(committee);
+                logger.info("Committee {} registered successfully with ID {}", savedCommittee.getCommitteeName(), savedCommittee.getId());
+                return ResponseEntity.status(HttpStatus.CREATED).body(savedCommittee);
+            } catch (IllegalArgumentException e) {
+                logger.warn("Invalid registration data: {}", e.getMessage());
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            } catch (Exception e) {
+                logger.error("Error registering committee {}", committee.getCommitteeName(), e);
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            }
+        }
+        
         // Create a new committee
         @Operation(summary = "Create a new committee")
         @PostMapping
@@ -196,23 +228,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
         public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
             logger.info("Login attempt for email: {}", loginRequest.getEmail()); 
             try {
-                if (loginRequest.getContactEmail() == null || loginRequest.getPassword() == null) {
-                    logger.warn("Login failed: missing email or password");
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-                }
-                
-                Committee committee = committeeRepository.findFirstByContactEmailIgnoreCase(loginRequest.getContactEmail());
-                
-                if (committee != null && committee.getPassword() != null && 
-                    committee.getPassword().equals(loginRequest.getPassword())) {
-                    logger.info("Login successful for email: {}", loginRequest.getContactEmail());
-                        // Password matches
-                    return ResponseEntity.ok(committee);
-                } else {
-                    // Invalid credentials
-                    logger.warn("Login failed for email: {}", loginRequest.getContactEmail());
-                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-                }
+                LoginResponse loginResponse = authService.loginCommittee(loginRequest);
+                return ResponseEntity.ok(loginResponse);
+            } catch (IllegalArgumentException e) {
+                logger.warn("Login failed: {}", e.getMessage());
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             } catch (Exception e) {
                 logger.error("Error during login for email {}", loginRequest.getEmail(), e);
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
