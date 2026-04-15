@@ -79,18 +79,25 @@ public class PermissionController {
     }
 
     // Submit a new permission application for an event
-    @Operation(summary = "Create a new permission")
     @PostMapping("/submit/{eventId}")
     public PermissionApplication submitApplication(@PathVariable Long eventId, @RequestBody PermissionApplication application) {
         logger.info("Submitting permission application for event ID {}", eventId);
-        Optional<Event> event = eventRepo.findById(eventId);
-        if (event.isPresent()) {
-            application.setEvent(event.get());
+        Optional<Event> eventOpt = eventRepo.findById(eventId);
+        if (eventOpt.isPresent()) {
+            Event event = eventOpt.get();
+            application.setEvent(event);
             application.setUploadDate(LocalDate.now());
             application.setStatus("Submitted");
+            
+            // Sync status with Event
+            event.setStatus("Pending"); 
+            eventRepo.save(event);
+            
             return permissionRepo.save(application);
-        }else{logger.warn("Event with ID {} not found. Cannot submit application.", eventId);
-        return null;}
+        } else {
+            logger.warn("Event with ID {} not found. Cannot submit application.", eventId);
+            return null;
+        }
     }
 
     // Approve or reject a permission application
@@ -103,9 +110,18 @@ public class PermissionController {
 
         if (applicationOpt.isPresent() && approverOpt.isPresent()) {
             PermissionApplication application = applicationOpt.get();
-            application.setStatus(approvalDetails.getApprovalStatus()); // e.g., "Approved" or "Rejected"
+            String newStatus = approvalDetails.getApprovalStatus(); // e.g., "Approved" or "Rejected"
+            application.setStatus(newStatus); 
             permissionRepo.save(application);
-            logger.info("Application ID {} status updated to '{}'", applicationId, approvalDetails.getApprovalStatus());
+            logger.info("Application ID {} status updated to '{}'", applicationId, newStatus);
+
+            // Sync status with Event
+            Event event = application.getEvent();
+            if (event != null) {
+                event.setStatus(newStatus);
+                eventRepo.save(event);
+                logger.info("Event ID {} status synchronized to '{}'", event.getEventId(), newStatus);
+            }
 
             approvalDetails.setPermissionApplication(application);
             approvalDetails.setApprover(approverOpt.get());

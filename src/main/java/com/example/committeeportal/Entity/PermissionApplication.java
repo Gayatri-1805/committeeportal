@@ -24,6 +24,10 @@ public class PermissionApplication {
     @JoinColumn(name = "event_id", referencedColumnName = "event_id")
     private Event event;
 
+    @ManyToOne
+    @JoinColumn(name = "approver_id", referencedColumnName = "approver_id", nullable = false)
+    private Approver approver;
+
     @Column(name = "upload_date")
     private LocalDate uploadDate;
 
@@ -39,6 +43,9 @@ public class PermissionApplication {
 
     public Event getEvent() { return event; }
     public void setEvent(Event event) { this.event = event; }
+
+    public Approver getApprover() { return approver; }
+    public void setApprover(Approver approver) { this.approver = approver; }
 
     public LocalDate getUploadDate() { return uploadDate; }
     public void setUploadDate(LocalDate uploadDate) { this.uploadDate = uploadDate; }

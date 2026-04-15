@@ -35,13 +35,13 @@ export class AuthService {
       contactEmail: data.email,
       password: data.password
     };
-    
+
     // Create login request for Approver endpoint
     const approverLoginData = {
       email: data.email,
       password: data.password
     };
-    
+
     // Try to login as approver first
     return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
       map(response => ({ role: 'APPROVER', userId: response.approverId } as LoginResponse)),
