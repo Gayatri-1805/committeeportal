@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CommitteeDashboardComponent } from './components/committee-dashboard/committee-dashboard.component';
@@ -14,6 +15,7 @@ import { JwtInterceptor } from './services/jwt.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
     LoginComponent,
     RegisterComponent,
     CommitteeDashboardComponent,

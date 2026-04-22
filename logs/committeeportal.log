@@ -1,63 +1,183 @@
-2026-04-16T00:33:29.837+05:30  INFO 9372 --- [main] c.e.c.CommitteeportalApplication         : Starting CommitteeportalApplication using Java 17.0.18 with PID 9372 (D:\projects\FSD\committeeportal\target\classes started by MORE FAMILY in d:\projects\FSD\committeeportal)
-2026-04-16T00:33:29.842+05:30 DEBUG 9372 --- [main] c.e.c.CommitteeportalApplication         : Running with Spring Boot v3.5.5, Spring v6.2.10
-2026-04-16T00:33:29.843+05:30  INFO 9372 --- [main] c.e.c.CommitteeportalApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-04-16T00:33:31.011+05:30  INFO 9372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-16T00:33:31.130+05:30  INFO 9372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 7 JPA repository interfaces.
-2026-04-16T00:33:32.146+05:30  INFO 9372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-16T00:33:32.171+05:30  INFO 9372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-16T00:33:32.172+05:30  INFO 9372 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2026-04-16T00:33:32.296+05:30  INFO 9372 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-16T00:33:32.296+05:30  INFO 9372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2402 ms
-2026-04-16T00:33:32.418+05:30 DEBUG 9372 --- [main] c.e.c.Security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
-2026-04-16T00:33:32.852+05:30  INFO 9372 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-16T00:33:33.045+05:30  INFO 9372 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2026-04-16T00:33:33.178+05:30  INFO 9372 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-16T00:33:33.561+05:30  INFO 9372 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-16T00:33:33.602+05:30  INFO 9372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-16T00:33:36.158+05:30  INFO 9372 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2fcc5f49
-2026-04-16T00:33:36.158+05:30  INFO 9372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-16T00:33:36.480+05:30  WARN 9372 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-16T00:33:37.401+05:30  INFO 9372 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.8
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-16T00:33:40.751+05:30  INFO 9372 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-16T00:33:42.081+05:30  INFO 9372 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-16T00:33:43.548+05:30  INFO 9372 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-16T00:33:47.937+05:30  WARN 9372 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-16T00:33:50.873+05:30  WARN 9372 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 038f9ddf-ab87-4759-abf9-0de0fff1df5e
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-16T00:33:51.022+05:30  INFO 9372 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-16T00:33:54.338+05:30  INFO 9372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-04-16T00:33:54.377+05:30  INFO 9372 --- [main] c.e.c.CommitteeportalApplication         : Started CommitteeportalApplication in 25.054 seconds (process running for 25.431)
-2026-04-16T00:33:54.653+05:30  INFO 9372 --- [main] c.e.c.Service.DataMigrationService       : Starting password migration to BCrypt encryption...
-2026-04-16T00:33:55.508+05:30  INFO 9372 --- [main] c.e.c.Service.DataMigrationService       : Password migration completed successfully
-2026-04-16T00:34:09.378+05:30  INFO 9372 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-16T00:34:09.381+05:30  INFO 9372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-16T00:34:09.384+05:30  INFO 9372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-04-16T00:34:09.761+05:30  INFO 9372 --- [http-nio-8080-exec-1] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
-2026-04-16T00:34:09.762+05:30  INFO 9372 --- [http-nio-8080-exec-1] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
-2026-04-16T00:34:10.518+05:30  INFO 9372 --- [http-nio-8080-exec-1] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
-2026-04-16T00:34:11.014+05:30  INFO 9372 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
-2026-04-16T00:34:11.014+05:30  INFO 9372 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
-2026-04-16T00:34:11.014+05:30  INFO 9372 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
-2026-04-16T00:34:11.020+05:30  INFO 9372 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
-2026-04-16T00:34:11.022+05:30  INFO 9372 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Fetching all venues...
-2026-04-16T00:34:11.025+05:30  INFO 9372 --- [http-nio-8080-exec-6] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
-2026-04-16T00:34:11.726+05:30  INFO 9372 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Found 5 venues
-2026-04-16T00:34:12.542+05:30  INFO 9372 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
-2026-04-16T00:34:12.545+05:30  INFO 9372 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching all permission applications
-2026-04-16T00:34:17.528+05:30  INFO 9372 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 10 applications
-2026-04-16T00:34:30.313+05:30  INFO 9372 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-16T00:34:30.468+05:30  INFO 9372 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2026-04-16T00:34:30.473+05:30  INFO 9372 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-16T00:34:30.475+05:30  INFO 9372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-16T00:34:31.182+05:30  INFO 9372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-23T00:30:03.383+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Login attempt for approver email: dean@college.edu
+2026-04-23T00:30:03.429+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: dean@college.edu
+2026-04-23T00:30:04.339+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.committeeportal.Service.AuthService  : Login successful for approver email: dean@college.edu
+2026-04-23T00:30:04.361+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Login successful for approver email: dean@college.edu
+2026-04-23T00:30:04.419+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:30:04.429+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:30:05.183+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:30:34.831+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:30:34.836+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:30:35.813+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:31:04.470+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:31:04.474+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:31:05.428+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:31:10.654+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:31:10.654+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:31:11.605+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:31:36.672+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:31:36.672+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Login attempt for approver email: dean@college.edu
+2026-04-23T00:31:36.672+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: dean@college.edu
+2026-04-23T00:31:37.369+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.committeeportal.Service.AuthService  : Login successful for approver email: dean@college.edu
+2026-04-23T00:31:37.369+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Login successful for approver email: dean@college.edu
+2026-04-23T00:31:37.436+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:31:37.437+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:31:38.169+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:32:07.818+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:32:07.822+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:32:08.794+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:32:31.920+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:32:31.924+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:32:32.888+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:33:02.821+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:33:02.825+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:33:03.800+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:33:32.820+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:33:32.825+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:33:33.807+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:34:02.837+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:34:02.840+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:34:03.858+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:34:32.854+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:34:32.857+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:34:33.804+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:35:02.842+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:35:02.843+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:35:03.830+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:35:32.813+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:35:32.815+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:35:33.767+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:36:02.819+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:36:02.819+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:36:03.770+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:36:46.800+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:36:46.800+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:36:47.761+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:37:18.842+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:37:18.842+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:37:19.778+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:37:56.002+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:37:56.003+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:37:56.944+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:38:09.266+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:38:09.270+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:38:10.203+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:38:11.435+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:38:11.438+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:38:12.373+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:38:41.834+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:38:41.834+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:38:42.761+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:39:11.828+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:39:11.831+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:39:12.767+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:39:41.852+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:39:41.852+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:39:42.789+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:40:11.836+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:40:11.838+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:40:13.243+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:40:41.880+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:40:41.880+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:40:42.821+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:41:11.858+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:41:11.858+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:41:12.785+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:42:14.846+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:42:14.846+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:42:15.797+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:42:29.145+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:42:29.147+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:42:30.079+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:42:59.878+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:42:59.885+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:43:00.829+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:43:29.827+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:43:29.833+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:43:30.756+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:43:59.816+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:43:59.817+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:44:00.692+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:44:29.820+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:44:29.822+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:44:30.950+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:44:59.861+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:44:59.863+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:45:00.845+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:45:29.853+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:45:29.855+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:45:31.180+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:46:18.823+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:46:18.825+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:46:19.786+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:46:48.024+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:46:48.024+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:46:48.981+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:47:18.870+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:47:18.870+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:47:19.830+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:48:18.852+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:48:18.852+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:48:19.805+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:48:49.743+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:48:49.746+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:48:50.700+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:48:59.805+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:48:59.805+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:49:00.757+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:49:29.816+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:49:29.817+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:49:30.822+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:49:52.219+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:49:52.219+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:49:53.166+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:50:08.805+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:50:08.806+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:50:09.758+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:50:38.841+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:50:38.841+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:50:39.797+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:51:08.837+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:51:08.837+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:51:09.791+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:51:38.843+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:51:38.843+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:51:39.809+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:52:08.861+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:52:08.861+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:52:09.843+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:52:32.032+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:52:32.032+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:52:33.009+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:53:02.823+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:53:02.823+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:53:03.778+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:53:32.820+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:53:32.821+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:53:33.786+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:54:02.832+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:54:02.834+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:54:03.805+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:54:32.827+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:54:32.827+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:54:33.767+05:30  INFO 22408 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:55:02.837+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:55:02.839+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:55:03.785+05:30  INFO 22408 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:55:16.519+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:55:16.522+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:55:17.464+05:30  INFO 22408 --- [http-nio-8080-exec-5] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:55:37.425+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:55:37.428+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:55:38.383+05:30  INFO 22408 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:56:07.444+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:56:07.448+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:56:08.417+05:30  INFO 22408 --- [http-nio-8080-exec-9] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:56:37.484+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:56:37.504+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:56:38.568+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:57:07.813+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:57:07.818+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:57:08.811+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:57:37.828+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:57:37.833+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:57:38.860+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications

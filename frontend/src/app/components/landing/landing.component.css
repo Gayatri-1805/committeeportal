@@ -1,0 +1,134 @@
+.landing-container {
+  min-height: 100vh;
+  background-image: url('../../../assets/image.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-section {
+  text-align: center;
+  color: #001a4d;
+  animation: fadeIn 0.8s ease-in;
+  margin-top: -300px;
+}
+
+.welcome-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+}
+
+.welcome-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.3);
+  opacity: 0.95;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.btn {
+  position: relative;
+  padding: 1.2rem 3.8rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  color: white;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px 50px 0 0;
+  pointer-events: none;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3), 0 0 30px rgba(255, 140, 0, 0.15);
+}
+
+.btn-login:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5), 0 0 40px rgba(255, 140, 0, 0.35);
+}
+
+.btn-login:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-register {
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 100%);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.btn-register:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5), 0 0 40px rgba(59, 130, 246, 0.35);
+}
+
+.btn-register:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-section p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .action-buttons {
+    gap: 1rem;
+  }
+}
