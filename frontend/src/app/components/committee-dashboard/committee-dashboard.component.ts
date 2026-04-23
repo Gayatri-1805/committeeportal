@@ -25,6 +25,16 @@ interface PermissionApplication {
   uploadDate: string;
   permissionDoc: string;
   status: string;
+  attachedDocuments?: PermissionDocument[];
+}
+
+interface PermissionDocument {
+  documentId: number;
+  applicationId: number;
+  fileName: string;
+  fileSize: number;
+  uploadedDate: string;
+  documentUrl: string;
 }
 
 @Component({
@@ -77,6 +87,12 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
   showSubmitModal: boolean = false;
   selectedEventToSubmit: Event | null = null;
   selectedApproverId: number | null = null;
+
+  // Document Upload
+  selectedFiles: File[] = [];
+  uploadingDocuments: boolean = false;
+  selectedAppIdForUpload: number | null = null;
+  documentUploadError: string = '';
 
   constructor(
     private http: HttpClient,
@@ -236,6 +252,8 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
     this.showSubmitModal = false;
     this.selectedEventToSubmit = null;
     this.selectedApproverId = null;
+    this.selectedFiles = [];
+    this.errorMessage = '';
   }
 
   confirmSubmitPermission(): void {
@@ -245,24 +263,38 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
        setTimeout(() => this.errorMessage = '', 4000);
        return;
     }
+    
+    if (this.selectedFiles.length === 0) {
+      this.errorMessage = 'Please attach at least one PDF document before submitting.';
+      setTimeout(() => this.errorMessage = '', 4000);
+      return;
+    }
 
     const event = this.selectedEventToSubmit;
     const approverId = this.selectedApproverId;
-    const payload = { permissionDoc: '' };
 
-    this.http.post<PermissionApplication>(
-      `${this.BASE}/permissions/submit/${event.eventId}/${approverId}`, payload
+    // Create FormData with files, eventId, and approverId
+    const formData = new FormData();
+    this.selectedFiles.forEach(file => {
+      formData.append('files', file);
+    });
+    formData.append('eventId', event.eventId.toString());
+    formData.append('approverId', approverId.toString());
+
+    const isSubmitting = true;
+    
+    this.http.post<any>(
+      `${this.BASE}/permissions/submit-with-documents`, formData
     ).subscribe({
       next: () => {
-        this.successMessage = `Permission application submitted to approver for "${event.eventName}".`;
+        this.successMessage = `Permission application with ${this.selectedFiles.length} document(s) submitted to approver for "${event.eventName}".`;
         this.loadData();
         this.closeSubmitModal();
         setTimeout(() => this.successMessage = '', 4000);
       },
       error: (err) => {
-        this.errorMessage = 'Failed to submit permission application.';
+        this.errorMessage = err?.error?.message || 'Failed to submit permission application with documents.';
         console.error(err);
-        this.closeSubmitModal();
         setTimeout(() => this.errorMessage = '', 4000);
       }
     });
@@ -306,5 +338,76 @@ export class CommitteeDashboardComponent implements OnInit, OnDestroy {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  // ─── Document Management ────────────────────
+  onFilesSelected(event: any): void {
+    const files: FileList = event.target.files;
+    if (files.length > 0) {
+      // Only allow PDFs
+      const validFiles = Array.from(files).filter(f => f.type === 'application/pdf');
+      if (validFiles.length === 0) {
+        this.documentUploadError = 'Only PDF files are allowed.';
+        setTimeout(() => this.documentUploadError = '', 4000);
+        return;
+      }
+      this.selectedFiles = validFiles;
+    }
+  }
+
+  uploadDocuments(applicationId: number): void {
+    if (this.selectedFiles.length === 0) {
+      this.documentUploadError = 'Please select at least one PDF file to upload.';
+      setTimeout(() => this.documentUploadError = '', 4000);
+      return;
+    }
+
+    const formData = new FormData();
+    this.selectedFiles.forEach(file => {
+      formData.append('files', file);
+    });
+
+    this.uploadingDocuments = true;
+    this.documentUploadError = '';
+
+    this.http.post(
+      `${this.BASE}/permissions/${applicationId}/upload-documents`,
+      formData
+    ).subscribe({
+      next: () => {
+        this.successMessage = `${this.selectedFiles.length} document(s) uploaded successfully.`;
+        this.selectedFiles = [];
+        this.selectedAppIdForUpload = null;
+        this.uploadingDocuments = false;
+        this.loadData();
+        setTimeout(() => this.successMessage = '', 4000);
+      },
+      error: (err) => {
+        this.uploadingDocuments = false;
+        this.documentUploadError = 'Failed to upload documents. Please try again.';
+        console.error(err);
+        setTimeout(() => this.documentUploadError = '', 4000);
+      }
+    });
+  }
+
+  downloadDocument(doc: PermissionDocument): void {
+    if (!doc.documentUrl) {
+      console.error('Document URL is missing');
+      return;
+    }
+    // Create a link and trigger download
+    const link = document.createElement('a');
+    link.href = `${this.BASE}${doc.documentUrl}`;
+    link.download = doc.fileName;
+    link.click();
+  }
+
+  formatFileSize(bytes: number): string {
+    if (!bytes) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
   }
 }

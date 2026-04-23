@@ -44,17 +44,17 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         // Allow public endpoints
-                        .requestMatchers(
-                                "/api/committees/login",
-                                "/api/approvers/login",
-                                "/api/committees/register",
-                                "/api/approvers/register",
-                                "/api/committees/reset-password",
-                                "/api/approvers/reset-password",
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**",
-                                "/swagger-ui.html"
-                        ).permitAll()
+                        .requestMatchers("/api/committees/login").permitAll()
+                        .requestMatchers("/api/approvers/login").permitAll()
+                        .requestMatchers("/api/committees/register").permitAll()
+                        .requestMatchers("/api/approvers/register").permitAll()
+                        .requestMatchers("/api/committees/reset-password").permitAll()
+                        .requestMatchers("/api/approvers/reset-password").permitAll()
+                        .requestMatchers("/permissions/submit-with-documents").permitAll()
+                        .requestMatchers("/permissions/documents/download/**").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+                        .requestMatchers("/swagger-ui.html").permitAll()
                         // All other endpoints require authentication
                         .anyRequest().authenticated()
                 )

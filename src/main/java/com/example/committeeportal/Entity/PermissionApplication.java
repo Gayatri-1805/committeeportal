@@ -31,7 +31,7 @@ public class PermissionApplication {
     @Column(name = "upload_date")
     private LocalDate uploadDate;
 
-    @Column(name = "permission_doc")
+    @Column(name = "permission_doc", columnDefinition = "TEXT")
     private String permissionDoc;
 
     @Column(name = "status")

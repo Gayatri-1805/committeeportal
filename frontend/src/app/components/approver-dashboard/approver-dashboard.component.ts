@@ -233,4 +233,23 @@ export class ApproverDashboardComponent implements OnInit, OnDestroy {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  // ✅ Parse permission_doc string and return document URLs
+  getDocumentUrls(permissionDoc: string): {filename: string, url: string}[] {
+    if (!permissionDoc || permissionDoc.trim() === '') {
+      return [];
+    }
+    
+    // Split by comma to get individual document paths
+    const paths = permissionDoc.split(',').map(p => p.trim()).filter(p => p.length > 0);
+    
+    return paths.map(path => {
+      // Extract filename from path (e.g., "/documents/uuid.pdf" -> "uuid.pdf")
+      const filename = path.split('/').pop() || path;
+      return {
+        filename: filename,
+        url: `${this.BASE}/permissions/documents/download/${filename}`
+      };
+    });
+  }
 }

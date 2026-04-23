@@ -1,18 +1,32 @@
 package com.example.committeeportal.Controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.committeeportal.Entity.Approval;
 import com.example.committeeportal.Entity.Approver;
@@ -22,6 +36,8 @@ import com.example.committeeportal.Repository.ApprovalRepository;
 import com.example.committeeportal.Repository.ApproverRepository;
 import com.example.committeeportal.Repository.EventRepository;
 import com.example.committeeportal.Repository.PermissionApplicationRepository;
+import com.example.committeeportal.ResponseBean.ErrorResponse;
+import com.example.committeeportal.ResponseBean.SuccessResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -31,13 +47,18 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/permissions")
 public class PermissionController {
 
-    private static final Logger logger = LoggerFactory.getLogger(PermissionController.class); // Logger
+    private static final Logger logger = LoggerFactory.getLogger(PermissionController.class);
+    
+    @Value("${file.upload.dir:uploads/documents}")
+    private String uploadDir;
+    
     private final PermissionApplicationRepository permissionRepo;
     private final ApprovalRepository approvalRepo;
     private final ApproverRepository approverRepo;
     private final EventRepository eventRepo;
 
-    public PermissionController(PermissionApplicationRepository permissionRepo, ApprovalRepository approvalRepo, ApproverRepository approverRepo, EventRepository eventRepo) {
+    public PermissionController(PermissionApplicationRepository permissionRepo, ApprovalRepository approvalRepo, 
+                               ApproverRepository approverRepo, EventRepository eventRepo) {
         this.permissionRepo = permissionRepo;
         this.approvalRepo = approvalRepo;
         this.approverRepo = approverRepo;
@@ -118,6 +139,111 @@ public class PermissionController {
         }
     }
 
+    // ✅ NEW: Submit permission application with documents BEFORE submission (compulsory)
+    @Operation(summary = "Submit permission application with attached documents")
+    @PostMapping("/submit-with-documents")
+    public ResponseEntity<?> submitApplicationWithDocuments(
+            @RequestParam("eventId") Long eventId,
+            @RequestParam("approverId") Long approverId,
+            @RequestParam("files") MultipartFile[] files) {
+        
+        logger.info("Submitting permission application for event ID {} to approver ID {} with {} files", 
+                   eventId, approverId, files.length);
+        
+        try {
+            // Validate event and approver exist
+            Optional<Event> eventOpt = eventRepo.findById(eventId);
+            Optional<Approver> approverOpt = approverRepo.findById(approverId);
+            
+            if (!eventOpt.isPresent()) {
+                logger.warn("Event with ID {} not found", eventId);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorResponse("Event not found"));
+            }
+            
+            if (!approverOpt.isPresent()) {
+                logger.warn("Approver with ID {} not found", approverId);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorResponse("Approver not found"));
+            }
+            
+            // Validate at least one file is provided
+            if (files == null || files.length == 0) {
+                logger.warn("No files provided for application submission");
+                return ResponseEntity.badRequest()
+                    .body(new ErrorResponse("At least one document is required"));
+            }
+            
+            // Create upload directory if it doesn't exist
+            File uploadDirectory = new File(uploadDir);
+            if (!uploadDirectory.exists()) {
+                uploadDirectory.mkdirs();
+                logger.info("Created upload directory: {}", uploadDir);
+            }
+            
+            // Process files and build comma-separated path string
+            StringBuilder docPaths = new StringBuilder();
+            
+            for (MultipartFile file : files) {
+                if (file.isEmpty()) continue;
+                
+                // Validate PDF
+                if (!file.getContentType().equals("application/pdf")) {
+                    logger.warn("Invalid file type for file: {}", file.getOriginalFilename());
+                    return ResponseEntity.badRequest()
+                        .body(new ErrorResponse("Only PDF files are allowed. File: " + file.getOriginalFilename()));
+                }
+                
+                try {
+                    // Generate unique filename
+                    String uniqueFileName = UUID.randomUUID().toString() + ".pdf";
+                    Path filePath = Paths.get(uploadDir, uniqueFileName);
+                    
+                    // Save file to disk
+                    Files.write(filePath, file.getBytes());
+                    logger.info("File saved: {}", filePath);
+                    
+                    // Build document path (relative path for storage in DB)
+                    if (docPaths.length() > 0) {
+                        docPaths.append(",");
+                    }
+                    docPaths.append("/documents/").append(uniqueFileName);
+                    
+                } catch (IOException e) {
+                    logger.error("Error saving file: {}", file.getOriginalFilename(), e);
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body(new ErrorResponse("Failed to save file: " + file.getOriginalFilename()));
+                }
+            }
+            
+            // Create permission application with document paths
+            Event event = eventOpt.get();
+            Approver approver = approverOpt.get();
+            
+            PermissionApplication application = new PermissionApplication();
+            application.setEvent(event);
+            application.setApprover(approver);
+            application.setUploadDate(LocalDate.now());
+            application.setStatus("Submitted");
+            application.setPermissionDoc(docPaths.toString());  // Store comma-separated paths
+            
+            // Sync status with Event
+            event.setStatus("Pending");
+            eventRepo.save(event);
+            
+            // Save application
+            PermissionApplication savedApplication = permissionRepo.save(application);
+            logger.info("Permission application created with ID {} and {} documents", savedApplication.getApplicationId(), files.length);
+            
+            return ResponseEntity.ok(new SuccessResponse("Permission application submitted successfully with " + files.length + " document(s)"));
+            
+        } catch (Exception e) {
+            logger.error("Error submitting permission application with documents", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse("Error submitting permission application"));
+        }
+    }
+
     // Approve or reject a permission application
     @Operation(summary = "approve or reject a new permission")
     @PostMapping("/{applicationId}/approve/{approverId}")
@@ -151,6 +277,42 @@ public class PermissionController {
                 if (approverOpt.isEmpty()) logger.warn("Approver ID {} not found", approverId);
                 return null;
         }
+    }
+
+    // ✅ Download a permission document by filename
+    @Operation(summary = "Download a permission document")
+    @GetMapping("/documents/download/{filename}")
+    public ResponseEntity<Resource> downloadDocument(@PathVariable String filename) {
+        logger.info("Download request for file: {}", filename);
         
+        try {
+            // Construct the file path - filename should be UUID.pdf format
+            Path filePath = Paths.get(uploadDir, filename);
+            
+            // Security check: ensure the file exists and is in the upload directory
+            File file = filePath.toFile();
+            if (!file.exists()) {
+                logger.warn("File not found: {}", filePath);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            
+            // Verify file is a PDF
+            if (!filename.toLowerCase().endsWith(".pdf")) {
+                logger.warn("Invalid file type requested: {}", filename);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            
+            Resource resource = new FileSystemResource(file);
+            logger.info("Serving file: {}", filename);
+            
+            return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+                .body(resource);
+                
+        } catch (Exception e) {
+            logger.error("Error downloading file: {}", filename, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }

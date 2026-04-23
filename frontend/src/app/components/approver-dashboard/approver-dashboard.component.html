@@ -278,13 +278,22 @@
       </div>
 
       <div class="detail-section">
-        <p class="section-title">Document</p>
-        <div class="detail-row">
-          <span class="detail-label">Permission Doc</span>
-          <span class="detail-value">
-            <a *ngIf="selectedApp.permissionDoc" [href]="selectedApp.permissionDoc" target="_blank" class="doc-link">View Document</a>
-            <span *ngIf="!selectedApp.permissionDoc" class="text-muted">Not uploaded</span>
-          </span>
+        <p class="section-title">Documents</p>
+        <div class="detail-row" *ngIf="getDocumentUrls(selectedApp.permissionDoc).length > 0">
+          <div style="width: 100%;">
+            <div *ngFor="let doc of getDocumentUrls(selectedApp.permissionDoc)" style="margin-bottom: 8px;">
+              <a [href]="doc.url" target="_blank" class="doc-link" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; background: #f0f4ff; border-radius: 4px; text-decoration: none; color: #2563eb; font-weight: 500; border: 1px solid #dbeafe;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+                {{ doc.filename }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="detail-row" *ngIf="getDocumentUrls(selectedApp.permissionDoc).length === 0">
+          <span class="text-muted">No documents attached</span>
         </div>
       </div>
 
