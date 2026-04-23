@@ -1,6 +1,7 @@
 package com.example.committeeportal.Config;
 
-import com.example.committeeportal.Security.JwtAuthenticationFilter;
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +16,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
+import com.example.committeeportal.Security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -48,6 +49,8 @@ public class SecurityConfig {
                                 "/api/approvers/login",
                                 "/api/committees/register",
                                 "/api/approvers/register",
+                                "/api/committees/reset-password",
+                                "/api/approvers/reset-password",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/swagger-ui.html"

@@ -181,3 +181,356 @@
 2026-04-23T00:57:37.828+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
 2026-04-23T00:57:37.833+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
 2026-04-23T00:57:38.860+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:58:07.832+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:58:07.833+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:58:08.859+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:58:37.838+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:58:37.842+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:58:38.965+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:59:07.822+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:59:07.824+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:59:08.947+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T00:59:37.868+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T00:59:37.871+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T00:59:38.955+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:00:07.838+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:00:07.839+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:00:08.852+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:00:37.834+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:00:37.838+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:00:39.037+05:30  INFO 22408 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:01:07.832+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:01:07.865+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:01:09.042+05:30  INFO 22408 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:01:37.831+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:01:37.836+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:01:39.012+05:30  INFO 22408 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:02:18.841+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:02:18.841+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:02:20.004+05:30  INFO 22408 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:02:37.828+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:02:37.831+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:02:38.904+05:30  INFO 22408 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:03:00.724+05:30  INFO 22408 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-23T01:03:00.923+05:30  INFO 22408 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-04-23T01:03:00.947+05:30  INFO 22408 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T01:03:00.986+05:30  INFO 22408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-23T01:03:01.458+05:30  INFO 22408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-23T01:03:03.139+05:30  INFO 34972 --- [main] c.e.c.CommitteeportalApplication         : Starting CommitteeportalApplication using Java 17.0.18 with PID 34972 (D:\projects\FSD\committeeportal\target\classes started by MORE FAMILY in d:\projects\FSD\committeeportal)
+2026-04-23T01:03:03.144+05:30 DEBUG 34972 --- [main] c.e.c.CommitteeportalApplication         : Running with Spring Boot v3.5.5, Spring v6.2.10
+2026-04-23T01:03:03.145+05:30  INFO 34972 --- [main] c.e.c.CommitteeportalApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-04-23T01:03:04.550+05:30  INFO 34972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-23T01:03:04.678+05:30  INFO 34972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 7 JPA repository interfaces.
+2026-04-23T01:03:05.965+05:30  INFO 34972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-23T01:03:05.982+05:30  INFO 34972 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-23T01:03:05.982+05:30  INFO 34972 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2026-04-23T01:03:06.148+05:30  INFO 34972 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-23T01:03:06.149+05:30  INFO 34972 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2938 ms
+2026-04-23T01:03:06.369+05:30 DEBUG 34972 --- [main] c.e.c.Security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-04-23T01:03:06.947+05:30  INFO 34972 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-23T01:03:07.246+05:30  INFO 34972 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-04-23T01:03:07.374+05:30  INFO 34972 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-23T01:03:08.021+05:30  INFO 34972 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-23T01:03:08.058+05:30  INFO 34972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-23T01:03:11.399+05:30  INFO 34972 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5256fbc
+2026-04-23T01:03:11.410+05:30  INFO 34972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-23T01:03:11.742+05:30  WARN 34972 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-23T01:03:12.590+05:30  INFO 34972 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-23T01:03:13.788+05:30  INFO 34972 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-23T01:03:15.335+05:30  INFO 34972 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T01:03:15.959+05:30  INFO 34972 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-23T01:03:17.587+05:30  WARN 34972 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-23T01:03:18.449+05:30  WARN 34972 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d535d656-2f0c-4a60-9eb0-c7573fd79379
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-23T01:03:18.480+05:30  INFO 34972 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-23T01:03:19.352+05:30  INFO 34972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-23T01:03:19.368+05:30  INFO 34972 --- [main] c.e.c.CommitteeportalApplication         : Started CommitteeportalApplication in 16.982 seconds (process running for 17.593)
+2026-04-23T01:03:19.704+05:30  INFO 34972 --- [main] c.e.c.Service.DataMigrationService       : Starting password migration to BCrypt encryption...
+2026-04-23T01:03:20.343+05:30  INFO 34972 --- [main] c.e.c.Service.DataMigrationService       : Password migration completed successfully
+2026-04-23T01:03:37.866+05:30  INFO 34972 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-23T01:03:37.868+05:30  INFO 34972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-23T01:03:37.869+05:30  INFO 34972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-23T01:03:38.023+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:03:38.061+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:03:39.163+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:04:18.848+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:04:18.848+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:04:20.119+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:05:18.857+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:05:18.857+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:05:20.128+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:05:52.905+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:05:52.907+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:05:53.871+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:06:02.067+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.CommitteeController     : Login attempt for email: dean@college.edu
+2026-04-23T01:06:02.068+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: dean@college.edu
+2026-04-23T01:06:02.724+05:30  WARN 34972 --- [http-nio-8080-exec-10] c.e.committeeportal.Service.AuthService  : Login failed for email: dean@college.edu - Invalid credentials
+2026-04-23T01:06:02.726+05:30  WARN 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.CommitteeController     : Login failed: Invalid email or password
+2026-04-23T01:06:02.759+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.ApproverController      : Login attempt for approver email: dean@college.edu
+2026-04-23T01:06:02.763+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: dean@college.edu
+2026-04-23T01:06:03.234+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.committeeportal.Service.AuthService  : Login successful for approver email: dean@college.edu
+2026-04-23T01:06:03.272+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.ApproverController      : Login successful for approver email: dean@college.edu
+2026-04-23T01:06:03.317+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:06:03.325+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:06:04.100+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:06:15.546+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.CommitteeController     : Login attempt for email: dean@college.edu
+2026-04-23T01:06:15.546+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: dean@college.edu
+2026-04-23T01:06:16.037+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Login failed for email: dean@college.edu - Invalid credentials
+2026-04-23T01:06:16.037+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.CommitteeController     : Login failed: Invalid email or password
+2026-04-23T01:06:16.062+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.ApproverController      : Login attempt for approver email: dean@college.edu
+2026-04-23T01:06:16.065+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: dean@college.edu
+2026-04-23T01:06:16.469+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.committeeportal.Service.AuthService  : Login successful for approver email: dean@college.edu
+2026-04-23T01:06:16.469+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.ApproverController      : Login successful for approver email: dean@college.edu
+2026-04-23T01:06:16.523+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: dean@college.edu
+2026-04-23T01:06:16.528+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Fetching permission applications for approver ID 2
+2026-04-23T01:06:17.255+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.PermissionController    : Found 1 targeted applications
+2026-04-23T01:08:48.849+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:08:48.849+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:08:49.627+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
+2026-04-23T01:08:49.733+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:08:49.735+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:08:49.735+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:08:49.738+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.VenueController         : Fetching all venues...
+2026-04-23T01:08:49.739+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2026-04-23T01:08:49.739+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:08:50.351+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.VenueController         : Found 5 venues
+2026-04-23T01:08:51.212+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:08:51.216+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:08:56.806+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:09:19.841+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:09:19.848+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:09:21.246+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:09:21.255+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:09:27.021+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:09:49.676+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:09:49.681+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:09:50.898+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:09:50.905+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:09:56.709+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:10:19.708+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:10:19.719+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:10:20.923+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:10:20.931+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:10:26.823+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:10:49.672+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:10:49.674+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:10:50.709+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:10:50.718+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:10:56.257+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:11:14.478+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:14.501+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Controller.EventController         : Creating new event: Zonal cultural fest
+2026-04-23T01:11:15.491+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Controller.EventController         : Event created successfully with ID: 13
+2026-04-23T01:11:15.578+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:15.581+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:11:16.637+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:16.641+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:11:19.669+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:19.674+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:11:23.008+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:11:23.021+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:23.021+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:11:29.794+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.PermissionController    : Found 10 applications
+2026-04-23T01:11:38.988+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:39.004+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.PermissionController    : Submitting permission application for event ID 13 to approver ID 12
+2026-04-23T01:11:41.277+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:41.284+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:11:42.373+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:42.377+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:11:48.836+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:11:49.680+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:49.686+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:11:51.191+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:11:51.193+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:11:57.032+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:11:59.020+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T01:11:59.020+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:11:59.836+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T01:11:59.843+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T01:11:59.854+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:11:59.861+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:00.353+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:00.406+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:00.406+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:00.416+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Fetching all venues...
+2026-04-23T01:12:00.416+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:00.418+05:30  INFO 34972 --- [http-nio-8080-exec-7] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2026-04-23T01:12:00.419+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:12:00.899+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Found 5 venues
+2026-04-23T01:12:01.656+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:01.656+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:12:07.884+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:12:44.407+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:44.408+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.266+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T01:12:45.266+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T01:12:45.286+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.286+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.762+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.808+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.814+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.819+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2026-04-23T01:12:45.821+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:45.823+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:12:45.826+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Fetching all venues...
+2026-04-23T01:12:46.599+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.VenueController         : Found 5 venues
+2026-04-23T01:12:47.581+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:12:47.581+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:12:53.148+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:13:15.831+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:15.836+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:13:17.217+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:17.219+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:13:23.098+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:13:48.606+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T01:13:48.616+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:13:49.392+05:30  WARN 34972 --- [http-nio-8080-exec-8] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T01:13:49.392+05:30  WARN 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T01:13:49.429+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:13:49.429+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:13:50.145+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
+2026-04-23T01:13:50.228+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:50.237+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:50.247+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:50.241+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2026-04-23T01:13:50.248+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.VenueController         : Fetching all venues...
+2026-04-23T01:13:50.249+05:30  INFO 34972 --- [http-nio-8080-exec-1] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:13:51.111+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.VenueController         : Found 5 venues
+2026-04-23T01:13:51.586+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:13:51.586+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:13:57.959+05:30  INFO 34972 --- [http-nio-8080-exec-6] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:14:13.827+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T01:14:13.828+05:30  INFO 34972 --- [http-nio-8080-exec-9] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:14:14.690+05:30  WARN 34972 --- [http-nio-8080-exec-9] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T01:14:14.696+05:30  WARN 34972 --- [http-nio-8080-exec-9] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T01:14:14.727+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.c.Controller.CommitteeController     : Login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:14:14.727+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.committeeportal.Service.AuthService  : Committee login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:14:15.526+05:30  INFO 34972 --- [http-nio-8080-exec-8] c.e.committeeportal.Service.AuthService  : Login successful for committee email: shrutipant@tcetmumbai.in
+2026-04-23T01:14:15.617+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:14:15.615+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:14:15.622+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:14:15.622+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.VenueController         : Fetching all venues...
+2026-04-23T01:14:15.626+05:30  INFO 34972 --- [http-nio-8080-exec-5] c.e.c.Controller.EventController         : Fetching events for committee ID: 11
+2026-04-23T01:14:15.626+05:30  INFO 34972 --- [http-nio-8080-exec-2] c.e.c.Controller.ApproverController      : Fetching all approvers from the database
+2026-04-23T01:14:16.113+05:30  INFO 34972 --- [http-nio-8080-exec-10] c.e.c.Controller.VenueController         : Found 5 venues
+2026-04-23T01:14:16.883+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Security.JwtAuthenticationFilter   : JWT token validated for user: shrutipant@tcetmumbai.in
+2026-04-23T01:14:16.887+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Fetching all permission applications
+2026-04-23T01:14:23.055+05:30  INFO 34972 --- [http-nio-8080-exec-3] c.e.c.Controller.PermissionController    : Found 11 applications
+2026-04-23T01:16:01.655+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T01:16:01.655+05:30  INFO 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T01:16:02.499+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T01:16:02.499+05:30  WARN 34972 --- [http-nio-8080-exec-4] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T19:34:25.961+05:30  INFO 15616 --- [main] c.e.c.CommitteeportalApplication         : Starting CommitteeportalApplication using Java 17.0.18 with PID 15616 (D:\projects\FSD\committeeportal\target\classes started by MORE FAMILY in D:\projects\FSD\committeeportal)
+2026-04-23T19:34:25.963+05:30 DEBUG 15616 --- [main] c.e.c.CommitteeportalApplication         : Running with Spring Boot v3.5.5, Spring v6.2.10
+2026-04-23T19:34:25.965+05:30  INFO 15616 --- [main] c.e.c.CommitteeportalApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-04-23T19:34:27.391+05:30  INFO 15616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-23T19:34:27.541+05:30  INFO 15616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 7 JPA repository interfaces.
+2026-04-23T19:34:28.857+05:30  INFO 15616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-23T19:34:28.885+05:30  INFO 15616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-23T19:34:28.885+05:30  INFO 15616 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2026-04-23T19:34:29.035+05:30  INFO 15616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-23T19:34:29.036+05:30  INFO 15616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2996 ms
+2026-04-23T19:34:29.179+05:30 DEBUG 15616 --- [main] c.e.c.Security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-04-23T19:34:29.550+05:30  INFO 15616 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-23T19:34:29.736+05:30  INFO 15616 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-04-23T19:34:29.855+05:30  INFO 15616 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-23T19:34:30.722+05:30  INFO 15616 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-23T19:34:30.801+05:30  INFO 15616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-23T19:34:34.607+05:30  INFO 15616 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58f50dd0
+2026-04-23T19:34:34.617+05:30  INFO 15616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-23T19:34:34.924+05:30  WARN 15616 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-23T19:34:35.704+05:30  INFO 15616 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-23T19:34:36.917+05:30  INFO 15616 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-23T19:34:38.497+05:30  INFO 15616 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T19:34:40.379+05:30  INFO 15616 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-23T19:34:44.824+05:30  WARN 15616 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-23T19:34:45.398+05:30  WARN 15616 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a4e8fe7a-dbe9-4db5-afbd-1a154e324c33
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-23T19:34:45.432+05:30  INFO 15616 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-23T19:34:46.494+05:30  INFO 15616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-23T19:34:46.509+05:30  INFO 15616 --- [main] c.e.c.CommitteeportalApplication         : Started CommitteeportalApplication in 21.305 seconds (process running for 21.942)
+2026-04-23T19:34:46.775+05:30  INFO 15616 --- [main] c.e.c.Service.DataMigrationService       : Starting password migration to BCrypt encryption...
+2026-04-23T19:34:47.387+05:30  INFO 15616 --- [main] c.e.c.Service.DataMigrationService       : Password migration completed successfully
+2026-04-23T19:36:37.196+05:30  INFO 15616 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-23T19:36:37.196+05:30  INFO 15616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-23T19:36:37.200+05:30  INFO 15616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-23T19:36:37.550+05:30  INFO 15616 --- [http-nio-8080-exec-3] c.e.c.Controller.ApproverController      : Login attempt for approver email: shrutipant@tcetmumbai.in
+2026-04-23T19:36:37.550+05:30  INFO 15616 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Approver login attempt for email: shrutipant@tcetmumbai.in
+2026-04-23T19:36:38.404+05:30  WARN 15616 --- [http-nio-8080-exec-3] c.e.committeeportal.Service.AuthService  : Login failed for email: shrutipant@tcetmumbai.in - Invalid credentials
+2026-04-23T19:36:38.404+05:30  WARN 15616 --- [http-nio-8080-exec-3] c.e.c.Controller.ApproverController      : Login failed for email: shrutipant@tcetmumbai.in - Invalid email or password
+2026-04-23T19:44:59.816+05:30  INFO 15616 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-23T19:45:00.061+05:30  INFO 15616 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-04-23T19:45:00.075+05:30  INFO 15616 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T19:45:00.078+05:30  INFO 15616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-23T19:45:00.585+05:30  INFO 15616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-23T19:45:06.319+05:30  INFO 12284 --- [main] c.e.c.CommitteeportalApplication         : Starting CommitteeportalApplication using Java 17.0.18 with PID 12284 (D:\projects\FSD\committeeportal\target\classes started by MORE FAMILY in d:\projects\FSD\committeeportal)
+2026-04-23T19:45:06.324+05:30 DEBUG 12284 --- [main] c.e.c.CommitteeportalApplication         : Running with Spring Boot v3.5.5, Spring v6.2.10
+2026-04-23T19:45:06.327+05:30  INFO 12284 --- [main] c.e.c.CommitteeportalApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-04-23T19:45:07.749+05:30  INFO 12284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-23T19:45:07.878+05:30  INFO 12284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 7 JPA repository interfaces.
+2026-04-23T19:45:09.049+05:30  INFO 12284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-23T19:45:09.187+05:30  INFO 12284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-23T19:45:09.188+05:30  INFO 12284 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2026-04-23T19:45:09.309+05:30  INFO 12284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-23T19:45:09.309+05:30  INFO 12284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2922 ms
+2026-04-23T19:45:09.404+05:30 DEBUG 12284 --- [main] c.e.c.Security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-04-23T19:45:09.786+05:30  INFO 12284 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-23T19:45:09.972+05:30  INFO 12284 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-04-23T19:45:10.063+05:30  INFO 12284 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-23T19:45:10.640+05:30  INFO 12284 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-23T19:45:10.678+05:30  INFO 12284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-23T19:45:13.778+05:30  INFO 12284 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5256fbc
+2026-04-23T19:45:13.783+05:30  INFO 12284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-23T19:45:14.137+05:30  WARN 12284 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-23T19:45:15.138+05:30  INFO 12284 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-23T19:45:16.539+05:30  INFO 12284 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-23T19:45:18.107+05:30  INFO 12284 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T19:45:18.703+05:30  INFO 12284 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-23T19:45:20.164+05:30  WARN 12284 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-23T19:45:21.222+05:30  WARN 12284 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e3e45899-8f37-4fe8-830e-15ce1be3da64
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-23T19:45:21.257+05:30  INFO 12284 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-23T19:45:22.623+05:30  INFO 12284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-23T19:45:22.638+05:30  INFO 12284 --- [main] c.e.c.CommitteeportalApplication         : Started CommitteeportalApplication in 16.99 seconds (process running for 17.499)
+2026-04-23T19:45:22.889+05:30  INFO 12284 --- [main] c.e.c.Service.DataMigrationService       : Starting password migration to BCrypt encryption...
+2026-04-23T19:45:23.713+05:30  INFO 12284 --- [main] c.e.c.Service.DataMigrationService       : Password migration completed successfully
+2026-04-23T19:47:08.473+05:30  INFO 12284 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-23T19:47:08.476+05:30  INFO 12284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-23T19:47:08.480+05:30  INFO 12284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-04-23T19:51:27.504+05:30  INFO 12284 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-23T19:51:27.996+05:30  INFO 12284 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-04-23T19:51:28.011+05:30  INFO 12284 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-23T19:51:28.016+05:30  INFO 12284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-23T19:51:28.563+05:30  INFO 12284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

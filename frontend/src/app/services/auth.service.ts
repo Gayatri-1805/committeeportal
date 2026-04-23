@@ -23,6 +23,12 @@ export interface LoginResponse {
   userName: string;
 }
 
+export interface ResetPasswordRequest {
+  email: string;
+  newPassword: string;
+  role: 'COMMITTEE' | 'APPROVER';
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +48,7 @@ export class AuthService {
       password: data.password
     };
 
-    // Try the selected role first, then fallback
+    // Respect the selected role - no fallback
     if (data.role === 'COMMITTEE') {
       return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
         map(response => {
@@ -53,22 +59,6 @@ export class AuthService {
           };
           this.saveSession(loginResponse, response.token);
           return loginResponse;
-        }),
-        catchError(() => {
-          return this.http.post<any>(`${this.apiUrl}/api/approvers/login`, approverLoginData).pipe(
-            map(response => {
-              const loginResponse: LoginResponse = { 
-                role: 'APPROVER', 
-                userId: response.userId,
-                userName: response.userName || 'Approver'
-              };
-              this.saveSession(loginResponse, response.token);
-              return loginResponse;
-            }),
-            catchError(() => {
-              throw new Error('Invalid credentials');
-            })
-          );
         })
       );
     } else if (data.role === 'APPROVER') {
@@ -81,22 +71,6 @@ export class AuthService {
           };
           this.saveSession(loginResponse, response.token);
           return loginResponse;
-        }),
-        catchError(() => {
-          return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
-            map(response => {
-              const loginResponse: LoginResponse = { 
-                role: 'COMMITTEE', 
-                userId: response.userId,
-                userName: response.userName || 'Committee'
-              };
-              this.saveSession(loginResponse, response.token);
-              return loginResponse;
-            }),
-            catchError(() => {
-              throw new Error('Invalid credentials');
-            })
-          );
         })
       );
     }
@@ -111,22 +85,6 @@ export class AuthService {
         };
         this.saveSession(loginResponse, response.token);
         return loginResponse;
-      }),
-      catchError(() => {
-        return this.http.post<any>(`${this.apiUrl}/api/committees/login`, committeeLoginData).pipe(
-          map(response => {
-            const loginResponse: LoginResponse = { 
-              role: 'COMMITTEE', 
-              userId: response.userId,
-              userName: response.userName || 'Committee'
-            };
-            this.saveSession(loginResponse, response.token);
-            return loginResponse;
-          }),
-          catchError(() => {
-            throw new Error('Invalid credentials');
-          })
-        );
       })
     );
   }
@@ -189,6 +147,21 @@ export class AuthService {
         role: 'APPROVER'
       };
       return this.http.post<any>(`${this.apiUrl}/api/approvers/register`, approverData);
+    }
+    throw new Error('Invalid role');
+  }
+
+  resetPassword(data: ResetPasswordRequest): Observable<any> {
+    if (data.role === 'COMMITTEE') {
+      return this.http.post<any>(`${this.apiUrl}/api/committees/reset-password`, {
+        email: data.email,
+        newPassword: data.newPassword
+      });
+    } else if (data.role === 'APPROVER') {
+      return this.http.post<any>(`${this.apiUrl}/api/approvers/reset-password`, {
+        email: data.email,
+        newPassword: data.newPassword
+      });
     }
     throw new Error('Invalid role');
   }

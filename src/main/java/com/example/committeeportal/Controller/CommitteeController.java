@@ -21,8 +21,11 @@
 
     import com.example.committeeportal.DTO.LoginRequest;
     import com.example.committeeportal.DTO.LoginResponse;
+    import com.example.committeeportal.DTO.PasswordResetRequest;
     import com.example.committeeportal.Entity.Committee;
     import com.example.committeeportal.Repository.CommitteeRepository;
+    import com.example.committeeportal.ResponseBean.ErrorResponse;
+    import com.example.committeeportal.ResponseBean.SuccessResponse;
     import com.example.committeeportal.Service.AuthService;
 
     import io.swagger.v3.oas.annotations.Operation;
@@ -279,5 +282,33 @@ import io.swagger.v3.oas.annotations.tags.Tag;
         }
     }
 
+    // ✅ Reset password endpoint for committees
+    @Operation(summary = "Reset committee password")
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody PasswordResetRequest request) {
+        logger.info("Password reset request for committee email: {}", request.getEmail());
+        try {
+            if (request.getEmail() == null || request.getEmail().isEmpty()) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("Email is required"));
+            }
+            if (request.getNewPassword() == null || request.getNewPassword().isEmpty()) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("New password is required"));
+            }
+            
+            Committee committee = committeeRepository.findFirstByContactEmailIgnoreCase(request.getEmail());
+            if (committee == null) {
+                logger.warn("Password reset failed: Committee not found for email: {}", request.getEmail());
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("Committee not found with this email"));
+            }
+            
+            authService.updateCommitteePassword(committee.getId(), request.getNewPassword());
+            
+            logger.info("Password reset successful for committee email: {}", request.getEmail());
+            return ResponseEntity.ok(new SuccessResponse("Password reset successfully"));
+        } catch (Exception e) {
+            logger.error("Error during password reset for email {}", request.getEmail(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("Error resetting password"));
+        }
+    }
         
     }

@@ -2,7 +2,8 @@
   <div class="login-card">
     <h2>Login</h2>
 
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <!-- Login Form -->
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" *ngIf="!showForgotPassword">
       <div class="form-group">
         <label for="loginRole">Login as:</label>
         <select id="loginRole" name="loginRole" [(ngModel)]="role" required>
@@ -44,8 +45,75 @@
       </button>
     </form>
 
+    <!-- Forgot Password Form -->
+    <form (ngSubmit)="onForgotPasswordSubmit()" #forgotForm="ngForm" *ngIf="showForgotPassword">
+      <div class="form-group">
+        <label for="forgotRole">Account Type:</label>
+        <select id="forgotRole" name="forgotRole" [(ngModel)]="forgotRole" required>
+          <option value="APPROVER">Approver</option>
+          <option value="COMMITTEE">Committee</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="forgotEmail">Email:</label>
+        <input
+          type="email"
+          id="forgotEmail"
+          name="forgotEmail"
+          [(ngModel)]="forgotEmail"
+          placeholder="Enter your registered email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input
+          type="password"
+          id="newPassword"
+          name="newPassword"
+          [(ngModel)]="newPassword"
+          placeholder="Enter new password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Confirm new password"
+          required
+        />
+      </div>
+
+      <div *ngIf="forgotErrorMessage" class="error-message">
+        {{ forgotErrorMessage }}
+      </div>
+
+      <div *ngIf="forgotSuccessMessage" class="success-message">
+        {{ forgotSuccessMessage }}
+      </div>
+
+      <button type="submit" [disabled]="isForgotLoading" class="btn-submit">
+        {{ isForgotLoading ? 'Resetting...' : 'Reset Password' }}
+      </button>
+    </form>
+
     <div class="register-link">
-      <p>Don't have an account? <a (click)="navigateToRegister()">Register here</a></p>
+      <p *ngIf="!showForgotPassword">
+        Don't have an account? <a (click)="navigateToRegister()">Register here</a>
+      </p>
+      <p *ngIf="!showForgotPassword">
+        <a class="forgot-password-link" (click)="toggleForgotPassword()">Forgot Password?</a>
+      </p>
+      <p *ngIf="showForgotPassword">
+        <a class="back-to-login-link" (click)="toggleForgotPassword()">Back to Login</a>
+      </p>
     </div>
   </div>
 </div>
